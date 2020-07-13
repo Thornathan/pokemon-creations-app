@@ -27,9 +27,23 @@ class App extends Component {
 
   handleAddPokemon = (newPokemonData) => {
     newPokemonData._id = this.state.pokemon.length + 1;
-    this.setState({
-      pokemon: [...this.state.pokemon, newPokemonData],
-    }, () => this.props.history.push('/'));
+    this.setState(
+      {
+        pokemon: [...this.state.pokemon, newPokemonData],
+      },
+      () => this.props.history.push("/")
+    );
+  };
+
+  handleDeletePokemon = (idOfPokemonToDelete) => {
+    this.setState(
+      (state) => ({
+        pokemon: state.pokemon.filter(
+          (pokemon) => pokemon._id !== idOfPokemonToDelete
+        ),
+      }),
+      () => this.props.history.push("/")
+    );
   };
 
   render() {
@@ -56,7 +70,10 @@ class App extends Component {
               exact
               path="/"
               render={({ history }) => (
-                <PokemonListPage pokemonFromParent={this.state.pokemon} />
+                <PokemonListPage
+                  pokemonFromParent={this.state.pokemon}
+                  handleDeletePokemon={this.handleDeletePokemon}
+                />
               )}
             />
             <Route
