@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import PokemonListPage from "../PokemonListPage/PokemonListPage";
-import AddPokemonPage from "../AddPokemonPage/AddPokeemonPage";
+import AddPokemonPage from "../AddPokemonPage/AddPokemonPage";
 
 class App extends Component {
   state = {
@@ -23,6 +23,13 @@ class App extends Component {
       },
     ],
   };
+
+  handlePokemon = newPokemonData => {
+    newPokemonData._id = this.state.pokemon.length + 1;
+    this.setState({
+      pokemon: [...this.state.pokemon, newPokemonData]
+    })
+  }
 
   render() {
     return (

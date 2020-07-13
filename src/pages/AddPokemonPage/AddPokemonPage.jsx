@@ -7,6 +7,18 @@ class AddPokemonPage extends Component {
       type: "",
     },
   };
+
+  handleChange = e => {
+    console.log(e.target.value)
+    const formDataAsUserTypes = {
+      ...this.state.formData,
+      [e.target.name]: e.target.value
+    }
+    this.setState({
+      formData: formDataAsUserTypes
+    })
+  }
+
   render() {
     return (
       <>
@@ -18,6 +30,7 @@ class AddPokemonPage extends Component {
               className="form-control"
               name="name"
               value={this.state.formData.name}
+              onChange={this.handleChange}
               required
             />
           </div>
@@ -27,6 +40,7 @@ class AddPokemonPage extends Component {
               className="form-control"
               name="type"
               value={this.state.formData.type}
+              onChange={this.handleChange}
               required
             />
           </div>
