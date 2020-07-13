@@ -3,6 +3,7 @@ import { Route, Switch, NavLink } from "react-router-dom";
 import "./App.css";
 import PokemonListPage from "../PokemonListPage/PokemonListPage";
 import AddPokemonPage from "../AddPokemonPage/AddPokemonPage";
+import EditPokemonPage from "../EditPokemonPage/EditPokemonPage";
 
 class App extends Component {
   state = {
@@ -46,6 +47,21 @@ class App extends Component {
     );
   };
 
+  handleUpdatePokemon = (updatedPokemonData) => {
+    const updatedPokemon = this.state.pokemon.map((pokemon) => {
+      if (pokemon._id === updatedPokemonData._id) {
+        pokemon = updatedPokemonData;
+      }
+      return pokemon;
+    });
+    this.setState(
+      {
+        pokemon: updatedPokemon,
+      },
+      () => this.props.history.push("/")
+    );
+  };
+
   render() {
     return (
       <div className="App">
@@ -81,6 +97,16 @@ class App extends Component {
               path="/add"
               render={() => (
                 <AddPokemonPage handleAddPokemon={this.handleAddPokemon} />
+              )}
+            />
+            <Route
+              exact
+              path="/edit"
+              render={({ history, location }) => (
+                <EditPokemonPage
+                  handleUpdatePokemon={this.handleUpdatePokemon}
+                  location={location}
+                />
               )}
             />
           </Switch>
