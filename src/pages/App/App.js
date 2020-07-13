@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import PokemonListPage from '../PokemonListPage/PokemonListPage'
+import PokemonListPage from "../PokemonListPage/PokemonListPage";
+import AddPokemonPage from "../AddPokemonPage/AddPokeemonPage";
 
 class App extends Component {
   state = {
@@ -29,6 +30,7 @@ class App extends Component {
         <header className="App-header">Pokemon Creations</header>
         <main>
           <PokemonListPage pokemonFromParent={this.state.pokemon} />
+          <AddPokemonPage />
         </main>
       </div>
     );
