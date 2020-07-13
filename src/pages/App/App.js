@@ -29,7 +29,7 @@ class App extends Component {
     newPokemonData._id = this.state.pokemon.length + 1;
     this.setState({
       pokemon: [...this.state.pokemon, newPokemonData],
-    });
+    }, () => this.props.history.push('/'));
   };
 
   render() {
@@ -51,8 +51,22 @@ class App extends Component {
           </nav>
         </header>
         <main>
-          <PokemonListPage pokemonFromParent={this.state.pokemon} />
-          <AddPokemonPage handleAddPokemon={this.handleAddPokemon} />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={({ history }) => (
+                <PokemonListPage pokemonFromParent={this.state.pokemon} />
+              )}
+            />
+            <Route
+              exact
+              path="/add"
+              render={() => (
+                <AddPokemonPage handleAddPokemon={this.handleAddPokemon} />
+              )}
+            />
+          </Switch>
         </main>
       </div>
     );
