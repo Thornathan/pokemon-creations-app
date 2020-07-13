@@ -19,11 +19,16 @@ class AddPokemonPage extends Component {
     })
   }
 
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.handleAddPokemon(this.state.formData);
+  }
+
   render() {
     return (
       <>
         <h1>Add Pokemon</h1>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Pokemon's Name (required)</label>
             <input

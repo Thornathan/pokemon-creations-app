@@ -24,7 +24,7 @@ class App extends Component {
     ],
   };
 
-  handlePokemon = newPokemonData => {
+  handleAddPokemon = newPokemonData => {
     newPokemonData._id = this.state.pokemon.length + 1;
     this.setState({
       pokemon: [...this.state.pokemon, newPokemonData]
@@ -37,7 +37,7 @@ class App extends Component {
         <header className="App-header">Pokemon Creations</header>
         <main>
           <PokemonListPage pokemonFromParent={this.state.pokemon} />
-          <AddPokemonPage />
+          <AddPokemonPage handleAddPokemon={this.handleAddPokemon}/>
         </main>
       </div>
     );
