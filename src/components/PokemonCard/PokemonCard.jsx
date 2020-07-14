@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function PokemonCard({ pokemonFromParent, handleDeletePokemon }) {
   return (
@@ -14,6 +14,12 @@ function PokemonCard({ pokemonFromParent, handleDeletePokemon }) {
         </dl>
       </div>
       <div className="panel-footer">
+        <Link
+          className="btn btn-xs btn-warning"
+          to={{ pathname: "/edit", state: { clickedOnPokemon: pokemonFromParent } }}
+        >
+          EDIT
+        </Link>
         <button
           className="btn btn-xs btn-danger margin-left-10"
           onClick={() => handleDeletePokemon(pokemonFromParent._id)}
