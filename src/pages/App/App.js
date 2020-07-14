@@ -62,6 +62,10 @@ class App extends Component {
     );
   };
 
+  async componentDidMount() {
+    
+  }
+
   render() {
     return (
       <div className="App">

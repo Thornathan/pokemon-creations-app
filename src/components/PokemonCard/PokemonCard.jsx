@@ -16,7 +16,10 @@ function PokemonCard({ pokemonFromParent, handleDeletePokemon }) {
       <div className="panel-footer">
         <Link
           className="btn btn-xs btn-warning"
-          to={{ pathname: "/edit", state: { clickedOnPokemon: pokemonFromParent } }}
+          to={{
+            pathname: "/edit",
+            state: { clickedOnPokemon: pokemonFromParent },
+          }}
         >
           EDIT
         </Link>

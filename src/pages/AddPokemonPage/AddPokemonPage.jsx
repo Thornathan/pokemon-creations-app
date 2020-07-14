@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 class AddPokemonPage extends Component {
-
-/*--- State ---*/
+  
+  /*--- State ---*/
 
   state = {
     formData: {
@@ -11,24 +11,24 @@ class AddPokemonPage extends Component {
     },
   };
 
-/*--- Handle Methods ---*/
+  /*--- Handle Methods ---*/
 
-  handleChange = e => {
+  handleChange = (e) => {
     const formDataAsUserTypes = {
       ...this.state.formData,
-      [e.target.name]: e.target.value
-    }
+      [e.target.name]: e.target.value,
+    };
     this.setState({
-      formData: formDataAsUserTypes
-    })
-  }
+      formData: formDataAsUserTypes,
+    });
+  };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.handleAddPokemon(this.state.formData);
-  }
+  };
 
-/*--- Lifecycle Methods ---*/
+  /*--- Lifecycle Methods ---*/
 
   render() {
     return (
