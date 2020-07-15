@@ -1,15 +1,17 @@
 // Basics
-var express = require("express");
-var path = require("path");
-var logger = require("morgan");
-var favicon = require("serve-favicon");
+const express = require("express");
+const path = require("path");
+const logger = require("morgan");
+const favicon = require("serve-favicon");
 
-var app = express();
+const app = express();
 
 /*--- Spot for database ---*/
 
 require("dotenv").config();
 require("./config/database");
+
+const pokemonRoutes = require('./routes/api/pokemon')
 
 /*--- Spot for recordRouter ---*/
 
@@ -19,6 +21,8 @@ app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
 
 /*--- Spot for api routes ---*/
+
+app.use('/api/pokemon', pokemonRoutes)
 
 /*--- Spot for catch all route ---*/
 
