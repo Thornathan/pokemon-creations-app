@@ -37,13 +37,23 @@ class EditPokemonPage extends Component {
           </div>
           <div className="form-group">
             <label>Pokemon's Type (required)</label>
-            <input
+            <select
               className="form-control"
               name="type"
               value={this.state.formData.type}
               onChange={this.handleChange}
-              required
-            />
+            >
+              <option>Choose a Type</option>
+              {this.props.typesFromParent.sort(function(a,b) {
+                if(a.name < b.name) {return -1;}
+                if(a.name > b.name) {return 1; }
+                return 0;
+                }).map((type, idx) => (
+                <option key={type.id} value={type.name} defaultValue={type.name === this.state.formData.type}>
+                  {type.name.toUpperCase()}
+                </option>
+              ))}
+            </select>
           </div>
           <button type="submit" className="btn btn-xs">
             SAVE POKEMON

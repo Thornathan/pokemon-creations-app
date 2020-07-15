@@ -4,6 +4,7 @@ import "./App.css";
 import PokemonListPage from "../PokemonListPage/PokemonListPage";
 import AddPokemonPage from "../AddPokemonPage/AddPokemonPage";
 import EditPokemonPage from "../EditPokemonPage/EditPokemonPage";
+import * as pokemonAPI from "../../utils/pokemonApi";
 
 class App extends Component {
   state = {
@@ -24,6 +25,8 @@ class App extends Component {
         type: "Fire/Flying",
       },
     ],
+    types: [],
+    apiPokemon: [],
   };
 
   handleAddPokemon = (newPokemonData) => {
@@ -63,7 +66,12 @@ class App extends Component {
   };
 
   async componentDidMount() {
-    
+    const typesFromAPI = await pokemonAPI.getAllTypeAPI();
+    const pokemonFromAPI = await pokemonAPI.getAllPokemonAPI();
+    this.setState({
+      types: typesFromAPI,
+      pokemons: pokemonFromAPI,
+    });
   }
 
   render() {
@@ -100,7 +108,10 @@ class App extends Component {
               exact
               path="/add"
               render={() => (
-                <AddPokemonPage handleAddPokemon={this.handleAddPokemon} />
+                <AddPokemonPage
+                  handleAddPokemon={this.handleAddPokemon}
+                  typesFromParent={this.state.types}
+                />
               )}
             />
             <Route
@@ -110,6 +121,7 @@ class App extends Component {
                 <EditPokemonPage
                   handleUpdatePokemon={this.handleUpdatePokemon}
                   location={location}
+                  typesFromParent={this.state.types}
                 />
               )}
             />
