@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./AddPokemonPage.css";
 
 class AddPokemonPage extends Component {
   /*--- State ---*/
