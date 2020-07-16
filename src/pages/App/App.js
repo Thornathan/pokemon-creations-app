@@ -30,17 +30,13 @@ class App extends Component {
     apiPokemon: [],
   };
 
-  handleAddPokemon = (newPokemonData) => {
-    newPokemonData._id = this.state.pokemon.length + 1;
-    this.setState(
-      {
-        pokemon: [...this.state.pokemon, newPokemonData],
-      },
-      () => this.props.history.push("/")
-    );
+  handleAddPokemon = async newPokemonData => {
+    await pokemonService.createPokemonAPI(newPokemonData);
+    this.getAllPokemon();
   };
 
-  handleDeletePokemon = (idOfPokemonToDelete) => {
+  handleDeletePokemon = async idOfPokemonToDelete => {
+    await pokemonService.deletePokemonAPI(idOfPokemonToDelete);
     this.setState(
       (state) => ({
         pokemon: state.pokemon.filter(
@@ -51,20 +47,17 @@ class App extends Component {
     );
   };
 
-  handleUpdatePokemon = (updatedPokemonData) => {
-    const updatedPokemon = this.state.pokemon.map((pokemon) => {
-      if (pokemon._id === updatedPokemonData._id) {
-        pokemon = updatedPokemonData;
-      }
-      return pokemon;
-    });
-    this.setState(
-      {
-        pokemon: updatedPokemon,
-      },
-      () => this.props.history.push("/")
-    );
+  handleUpdatePokemon = async updatedPokemonData => {
+    await pokemonService.updatePokemonAPI(updatedPokemonData);
+    this.getAllPokemon();
   };
+
+  getAllPokemon = async () => {
+    const pokemon = await pokemonService.getAllPokemonAPI();
+    this.setState({
+      pokemon
+    }, () => this.props.history.push('/'));
+  }
 
   async componentDidMount() {
     const typesFromAPI = await pokemonAPI.getAllTypeAPI();
