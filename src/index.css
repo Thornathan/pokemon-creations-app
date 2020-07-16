@@ -4,6 +4,7 @@
   --background: #F1E9DB;
   --secondary: #A39B8B;
   --secondary-dark: #716A5C;
+  --red: #C70039; 
 }
 
 body {
@@ -29,7 +30,7 @@ a:hover {
 
 a.active {
   color: var(--background);
-  background-color: var(--black);
+  background-color: var(--secondary);
   cursor: default;
 }
 

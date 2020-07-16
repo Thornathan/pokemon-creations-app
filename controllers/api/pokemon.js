@@ -9,10 +9,8 @@ module.exports = {
 
 // index
 async function index(req, res) {
-  console.log("hitting index function");
   try {
-    const pokemon = await Pokemon.find({ user: req.user._id}).populate('user');
-    console.log(pokemon);
+    const pokemon = await Pokemon.find({ user: req.user._id }).populate("user");
     res.status(200).json(pokemon);
   } catch (err) {
     res.status(500).json(err);
@@ -22,7 +20,7 @@ async function index(req, res) {
 // create
 async function create(req, res) {
   try {
-    req.body.user = req.user  
+    req.body.user = req.user;
     const newPokemon = await Pokemon.create(req.body);
     res.status(201).json(newPokemon);
   } catch (err) {

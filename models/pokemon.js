@@ -3,9 +3,10 @@ var Schema = mongoose.Schema;
 
 var pokemonSchema = new Schema(
   {
+    user: { type: Schema.Types.ObjectId, ref: "User" },
     name: { type: String, required: true },
     type: { type: String, required: true },
-    user: { type: Schema.Types.ObjectId, ref: "User" },
+    type2: {type: String},
   },
   {
     timestamps: true,

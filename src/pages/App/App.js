@@ -98,16 +98,16 @@ class App extends Component {
                   ? `WELCOME, ${userService.getUser().name.toUpperCase()}`
                   : ""}
                 &nbsp;&nbsp;&nbsp;
-                <NavLink exact to="/logout" onClick={this.handleLogout}>
-                  LOGOUT
-                </NavLink>
-                &nbsp;&nbsp;&nbsp;
                 <NavLink exact to="/">
                   POKEMON LIST
                 </NavLink>
                 &nbsp;&nbsp;&nbsp;
                 <NavLink exact to="/add">
                   ADD POKEMON
+                </NavLink>
+                &nbsp;&nbsp;&nbsp;
+                <NavLink exact to="/logout" onClick={this.handleLogout}>
+                  LOGOUT
                 </NavLink>
               </>
             ) : (

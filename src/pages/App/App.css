@@ -5,7 +5,7 @@
 }
 
 .App-header {
-  background-color: var(--black);
+  background-color: var(--red);
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -13,7 +13,7 @@ function PokemonListPage({ pokemon, handleDeletePokemon }) {
             pokemonFromParent={p}
             handleDeletePokemon={handleDeletePokemon}
           />
-        )) : 'no pokemon'}
+        )) : 'No Pokemon'}
       </div>
     </>
   );

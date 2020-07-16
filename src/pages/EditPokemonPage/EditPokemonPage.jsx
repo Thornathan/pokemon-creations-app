@@ -49,7 +49,24 @@ class EditPokemonPage extends Component {
                 if(a.name > b.name) {return 1; }
                 return 0;
                 }).map((type, idx) => (
-                <option key={type.id} value={type.name} defaultValue={type.name === this.state.formData.type}>
+                <option key={idx} value={type.name} defaultValue={type.name === this.state.formData.type}>
+                  {type.name.toUpperCase()}
+                </option>
+              ))}
+            </select>
+            <select
+              className="form-control"
+              name="type2"
+              value={this.state.formData.type2}
+              onChange={this.handleChange}
+            >
+              <option>Choose a Type</option>
+              {this.props.typesFromParent.sort(function(a,b) {
+                if(a.name < b.name) {return -1;}
+                if(a.name > b.name) {return 1; }
+                return 0;
+                }).map((type, idx) => (
+                <option key={idx} value={type.name} defaultValue={type.name === this.state.formData.type2}>
                   {type.name.toUpperCase()}
                 </option>
               ))}
