@@ -1,41 +1,45 @@
 import React, { Component } from "react";
-import { Route, Switch, NavLink } from "react-router-dom";
+import { Route, Switch, Redirect, NavLink } from "react-router-dom";
 import "./App.css";
 import PokemonListPage from "../PokemonListPage/PokemonListPage";
 import AddPokemonPage from "../AddPokemonPage/AddPokemonPage";
 import EditPokemonPage from "../EditPokemonPage/EditPokemonPage";
+import SignupPage from "../SignupPage/SignupPage";
+import LoginPage from "../LoginPage/LoginPage";
+import userService from "../../utils/userService";
 import * as pokemonAPI from "../../utils/pokemonApi";
 import * as pokemonService from "../../utils/pokemonServices";
 
 class App extends Component {
   state = {
-    pokemon: [
-      {
-        _id: 1,
-        name: "Charmander",
-        type: "Fire",
-      },
-      {
-        _id: 2,
-        name: "Charmeleon",
-        type: "Fire",
-      },
-      {
-        _id: 3,
-        name: "Charizard",
-        type: "Fire/Flying",
-      },
-    ],
     types: [],
-    apiPokemon: [],
+    user: userService.getUser(),
+    pokemons: [],
+    pokemon: [],
   };
 
-  handleAddPokemon = async newPokemonData => {
+  handleLogout = () => {
+    userService.logout();
+    this.setState({ user: null }, () => this.props.history.push("/"));
+  };
+
+  handleSignupOrLogin = () => {
+    this.setState(
+      {
+        user: userService.getUser(),
+      },
+      () => {
+        this.getAllPuppies();
+      }
+    );
+  };
+
+  handleAddPokemon = async (newPokemonData) => {
     await pokemonService.createPokemonAPI(newPokemonData);
     this.getAllPokemon();
   };
 
-  handleDeletePokemon = async idOfPokemonToDelete => {
+  handleDeletePokemon = async (idOfPokemonToDelete) => {
     await pokemonService.deletePokemonAPI(idOfPokemonToDelete);
     this.setState(
       (state) => ({
@@ -47,17 +51,20 @@ class App extends Component {
     );
   };
 
-  handleUpdatePokemon = async updatedPokemonData => {
+  handleUpdatePokemon = async (updatedPokemonData) => {
     await pokemonService.updatePokemonAPI(updatedPokemonData);
     this.getAllPokemon();
   };
 
   getAllPokemon = async () => {
     const pokemon = await pokemonService.getAllPokemonAPI();
-    this.setState({
-      pokemon
-    }, () => this.props.history.push('/'));
-  }
+    this.setState(
+      {
+        pokemon,
+      },
+      () => this.props.history.push("/")
+    );
+  };
 
   async componentDidMount() {
     const typesFromAPI = await pokemonAPI.getAllTypeAPI();
@@ -74,50 +81,102 @@ class App extends Component {
         <header className="App-header">
           Pokemon Creations
           <nav>
-            <>
-              &nbsp;&nbsp;&nbsp;
-              <NavLink exact to="/">
-                POKEMON LIST
-              </NavLink>
-              &nbsp;&nbsp;&nbsp;
-              <NavLink exact to="/add">
-                ADD POKEMON
-              </NavLink>
-            </>
+            {userService.getUser() ? (
+              <>
+                {userService.getUser().name
+                  ? `WELCOME, ${userService.getUser().name.toUpperCase()}`
+                  : ""}
+                &nbsp;&nbsp;&nbsp;
+                <NavLink exact to="/logout" onClick={this.handleLogout}>
+                  LOGOUT
+                </NavLink>
+                &nbsp;&nbsp;&nbsp;
+                <NavLink exact to="/">
+                  POKEMON LIST
+                </NavLink>
+                &nbsp;&nbsp;&nbsp;
+                <NavLink exact to="/add">
+                  ADD POKEMON
+                </NavLink>
+              </>
+            ) : (
+              <>
+                <NavLink exact to="/signup">
+                  SIGNUP
+                </NavLink>
+                &nbsp;&nbsp;&nbsp;
+                <NavLink exact to="/login">
+                  LOGIN
+                </NavLink>
+                &nbsp;&nbsp;&nbsp;
+              </>
+            )}
           </nav>
         </header>
         <main>
           <Switch>
             <Route
               exact
-              path="/"
+              path="/signup"
               render={({ history }) => (
-                <PokemonListPage
-                  pokemonFromParent={this.state.pokemon}
-                  handleDeletePokemon={this.handleDeletePokemon}
+                <SignupPage
+                  history={history}
+                  handleSignupOrLogin={this.handleSignupOrLogin}
                 />
               )}
+            />
+            <Route
+              exact
+              path="/login"
+              render={({ history }) => (
+                <LoginPage
+                  history={history}
+                  handleSignupOrLogin={this.handleSignupOrLogin}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/"
+              render={({ history }) =>
+                userService.getUser() ? (
+                  <PokemonListPage
+                    pokemonFromParent={this.state.pokemons}
+                    handleDeletePokemon={this.handleDeletePokemon}
+                  />
+                ) : (
+                  <Redirect to="/login" />
+                )
+              }
             />
             <Route
               exact
               path="/add"
-              render={() => (
-                <AddPokemonPage
-                  handleAddPokemon={this.handleAddPokemon}
-                  typesFromParent={this.state.types}
-                />
-              )}
+              render={() =>
+                userService.getUser() ? (
+                  <AddPokemonPage
+                    handleAddPokemon={this.handleAddPokemon}
+                    typesFromParent={this.state.types}
+                  />
+                ) : (
+                  <Redirect to="/login" />
+                )
+              }
             />
             <Route
               exact
               path="/edit"
-              render={({ history, location }) => (
-                <EditPokemonPage
-                  handleUpdatePokemon={this.handleUpdatePokemon}
-                  location={location}
-                  typesFromParent={this.state.types}
-                />
-              )}
+              render={({ history, location }) =>
+                userService.getUser() ? (
+                  <EditPokemonPage
+                    handleUpdatePokemon={this.handleUpdatePokemon}
+                    location={location}
+                    typesFromParent={this.state.types}
+                  />
+                ) : (
+                  <Redirect to="/login" />
+                )
+              }
             />
           </Switch>
         </main>

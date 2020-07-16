@@ -10,7 +10,7 @@ module.exports = {
 // index
 async function index(req, res) {
     try{
-        const pokemon = await Pokemon.find();
+        const pokemon = await Pokemon.find({user: req.user._id}).populate('user');
         res.status(200).json(pokemon);
     }
     catch(err){

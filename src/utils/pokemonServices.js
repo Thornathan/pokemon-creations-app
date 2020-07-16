@@ -1,7 +1,12 @@
+import tokenService from "./tokenService";
 const BASE_URL = "/api/pokemon";
 
 export function getAllPokemonAPI() {
-  return fetch(BASE_URL).then((allPokemon) => allPokemon.json());
+  return fetch(BASE_URL, {
+    headers: {
+      Authorization: `Bearer ${tokenService.getTokenFromLocalStorage()}`,
+    },
+  }).then((allPokemon) => allPokemon.json());
 }
 
 export function createPokemonAPI(pokemonToCreate) {
@@ -9,6 +14,7 @@ export function createPokemonAPI(pokemonToCreate) {
     method: "POST",
     headers: {
       "Content-type": "application/json",
+      Authorization: `Bearer ${tokenService.getTokenFromLocalStorage()}`,
     },
     body: JSON.stringify(pokemonToCreate),
   }).then((newPokemon) => newPokemon.json());
@@ -17,6 +23,9 @@ export function createPokemonAPI(pokemonToCreate) {
 export function deletePokemonAPI(pokemonIdToDelete) {
   return fetch(`${BASE_URL}/${pokemonIdToDelete}`, {
     method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${tokenService.getTokenFromLocalStorage()}`,
+    },
   }).then((deletedPokemon) => deletedPokemon.json());
 }
 
@@ -25,6 +34,7 @@ export function updatePokemonAPI(pokemonToUpdate) {
     method: "PUT",
     headers: {
       "Content-type": "application/json",
+      Authorization: `Bearer ${tokenService.getTokenFromLocalStorage()}`,
     },
     body: JSON.stringify(pokemonToUpdate),
   }).then((updatedPokemon) => updatedPokemon.json());

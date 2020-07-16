@@ -11,18 +11,21 @@ const app = express();
 require("dotenv").config();
 require("./config/database");
 
-const pokemonRoutes = require('./routes/api/pokemon')
+const userRoutes = require("./routes/users");
+const pokemonRoutes = require("./routes/api/pokemon");
 
-/*--- Spot for recordRouter ---*/
+/*--- Spot for Basic Routes ---*/
 
 app.use(logger("dev"));
 app.use(express.json());
 app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
+app.use("/api/users", userRoutes);
+app.use(require("./config/auth"));
 
 /*--- Spot for api routes ---*/
 
-app.use('/api/pokemon', pokemonRoutes)
+app.use("/api/pokemon", pokemonRoutes);
 
 /*--- Spot for catch all route ---*/
 

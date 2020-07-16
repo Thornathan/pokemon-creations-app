@@ -9,6 +9,8 @@ function PokemonCard({ pokemonFromParent, handleDeletePokemon }) {
       </div>
       <div className="panel-body">
         <dl>
+        <dt>Owner</dt>
+        <dd>{`${pokemonFromParent.user.name.charAt(0).toUpperCase()}${pokemonFromParent.user.name.slice(1)}`}</dd>
           <dt>Type</dt>
           <dd>{pokemonFromParent.type.toUpperCase()}</dd>
         </dl>
