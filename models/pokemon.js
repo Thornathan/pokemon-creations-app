@@ -5,6 +5,7 @@ var pokemonSchema = new Schema(
   {
     name: { type: String, required: true },
     type: { type: String, required: true },
+    user: { type: Schema.Types.ObjectId, ref: "User" },
   },
   {
     timestamps: true,

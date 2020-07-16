@@ -15,6 +15,7 @@ class App extends Component {
     types: [],
     user: userService.getUser(),
     pokemon: [],
+    pokemons: []
   };
 
   handleLogout = () => {
@@ -22,7 +23,15 @@ class App extends Component {
     this.setState({ user: null }, () => this.props.history.push("/"));
   };
 
-  handleSignupOrLogin = () => {
+  handleSignupOrLogin = async () => {
+    const pokemon = await pokemonService.getAllPokemonAPI();
+    const typesFromAPI = await pokemonAPI.getAllTypeAPI();
+    const pokemonFromAPI = await pokemonAPI.getAllPokemonAPI();
+    this.setState({
+      types: typesFromAPI,
+      pokemons: pokemonFromAPI,
+      pokemon: pokemon
+    });
     this.setState(
       {
         user: userService.getUser(),
@@ -66,13 +75,15 @@ class App extends Component {
   };
 
   async componentDidMount() {
-    this.getAllPokemon();
+    const pokemon = await pokemonService.getAllPokemonAPI();
     const typesFromAPI = await pokemonAPI.getAllTypeAPI();
     const pokemonFromAPI = await pokemonAPI.getAllPokemonAPI();
     this.setState({
       types: typesFromAPI,
       pokemons: pokemonFromAPI,
+      pokemon: pokemon
     });
+    console.log(pokemon)
   }
 
   render() {
@@ -141,7 +152,7 @@ class App extends Component {
               render={({ history }) =>
                 userService.getUser() ? (
                   <PokemonListPage
-                    pokemonFromParent={this.state.pokemons}
+                    pokemon={this.state.pokemon}
                     handleDeletePokemon={this.handleDeletePokemon}
                   />
                 ) : (

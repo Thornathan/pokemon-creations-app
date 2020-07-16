@@ -2,18 +2,18 @@ import React from "react";
 import "./PokemonListPage.css";
 import PokemonCard from "../../components/PokemonCard/PokemonCard";
 
-function PokemonListPage({ pokemonFromParent, handleDeletePokemon }) {
+function PokemonListPage({ pokemon, handleDeletePokemon }) {
   return (
     <>
       <h1>Pokemon List</h1>
       <div className="PokemonListPage-grid">
-        {pokemonFromParent.map((pokemon) => (
+        {pokemon ? pokemon.map((p) => (
           <PokemonCard
-            key={pokemon._id}
-            pokemonFromParent={pokemon}
+            key={p._id}
+            pokemonFromParent={p}
             handleDeletePokemon={handleDeletePokemon}
           />
-        ))}
+        )) : 'no pokemon'}
       </div>
     </>
   );
