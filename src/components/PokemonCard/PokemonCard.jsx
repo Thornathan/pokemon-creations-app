@@ -10,7 +10,7 @@ function PokemonCard({ pokemonFromParent, handleDeletePokemon }) {
       <div className="panel-body">
         <dl>
           <dt>Type</dt>
-          <dd>{pokemonFromParent.type}</dd>
+          <dd>{pokemonFromParent.type.toUpperCase()}</dd>
         </dl>
       </div>
       <div className="panel-footer">

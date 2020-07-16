@@ -53,8 +53,12 @@ class AddPokemonPage extends Component {
               onChange={this.handleChange}
             >
               <option>Choose a Type</option>
-              {this.props.typesFromParent.map((type, idx) => (
-                <option key={type.id} value={type.name}>
+              {this.props.typesFromParent.sort(function(a,b) {
+                if(a.name < b.name) {return -1;}
+                if(a.name > b.name) {return 1; }
+                return 0;
+                }).map((type, idx) => (
+                <option key={type.id} value={type.name} defaultValue={type.name === this.state.formData.type}>
                   {type.name.toUpperCase()}
                 </option>
               ))}

@@ -5,6 +5,7 @@ import PokemonListPage from "../PokemonListPage/PokemonListPage";
 import AddPokemonPage from "../AddPokemonPage/AddPokemonPage";
 import EditPokemonPage from "../EditPokemonPage/EditPokemonPage";
 import * as pokemonAPI from "../../utils/pokemonApi";
+import * as pokemonService from "../../utils/pokemonServices";
 
 class App extends Component {
   state = {
