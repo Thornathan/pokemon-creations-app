@@ -14,7 +14,6 @@ class App extends Component {
   state = {
     types: [],
     user: userService.getUser(),
-    pokemons: [],
     pokemon: [],
   };
 
@@ -29,7 +28,7 @@ class App extends Component {
         user: userService.getUser(),
       },
       () => {
-        this.getAllPuppies();
+        this.getAllPokemon();
       }
     );
   };
@@ -67,6 +66,7 @@ class App extends Component {
   };
 
   async componentDidMount() {
+    this.getAllPokemon();
     const typesFromAPI = await pokemonAPI.getAllTypeAPI();
     const pokemonFromAPI = await pokemonAPI.getAllPokemonAPI();
     this.setState({
