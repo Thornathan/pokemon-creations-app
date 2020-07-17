@@ -2,6 +2,7 @@
   min-height: 100vh;
   display: grid;
   grid-template-rows: 7vmin auto;
+  min-height: 100vh;
 }
 
 .App-header {
@@ -25,4 +26,8 @@
 .App main h1 {
   color: var(--secondary-dark);
   margin-bottom: 5vmin;
+}
+
+.navbar {
+  background-color: #ef5350 !important;
 }

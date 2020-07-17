@@ -44,15 +44,25 @@ class EditPokemonPage extends Component {
               onChange={this.handleChange}
             >
               <option>Choose a Type</option>
-              {this.props.typesFromParent.sort(function(a,b) {
-                if(a.name < b.name) {return -1;}
-                if(a.name > b.name) {return 1; }
-                return 0;
-                }).map((type, idx) => (
-                <option key={idx} value={type.name} defaultValue={type.name === this.state.formData.type}>
-                  {type.name.toUpperCase()}
-                </option>
-              ))}
+              {this.props.typesFromParent
+                .sort(function (a, b) {
+                  if (a.name < b.name) {
+                    return -1;
+                  }
+                  if (a.name > b.name) {
+                    return 1;
+                  }
+                  return 0;
+                })
+                .map((type, idx) => (
+                  <option
+                    key={idx}
+                    value={type.name}
+                    defaultValue={type.name === this.state.formData.type}
+                  >
+                    {type.name.toUpperCase()}
+                  </option>
+                ))}
             </select>
             <select
               className="form-control"
@@ -61,15 +71,25 @@ class EditPokemonPage extends Component {
               onChange={this.handleChange}
             >
               <option>Choose a Type</option>
-              {this.props.typesFromParent.sort(function(a,b) {
-                if(a.name < b.name) {return -1;}
-                if(a.name > b.name) {return 1; }
-                return 0;
-                }).map((type, idx) => (
-                <option key={idx} value={type.name} defaultValue={type.name === this.state.formData.type2}>
-                  {type.name.toUpperCase()}
-                </option>
-              ))}
+              {this.props.typesFromParent
+                .sort(function (a, b) {
+                  if (a.name < b.name) {
+                    return -1;
+                  }
+                  if (a.name > b.name) {
+                    return 1;
+                  }
+                  return 0;
+                })
+                .map((type, idx) => (
+                  <option
+                    key={idx}
+                    value={type.name}
+                    defaultValue={type.name === this.state.formData.type2}
+                  >
+                    {type.name.toUpperCase()}
+                  </option>
+                ))}
             </select>
           </div>
           <button type="submit" className="btn btn-xs">

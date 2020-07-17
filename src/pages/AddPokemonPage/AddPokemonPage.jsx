@@ -34,7 +34,7 @@ class AddPokemonPage extends Component {
   render() {
     return (
       <>
-        <h1>Add Pokemon</h1>
+        <h1>Create A Pokemon</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Pokemon's Name (required)</label>

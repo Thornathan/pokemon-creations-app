@@ -1,10 +1,10 @@
 :root {
-  --black: #07020D;
-  --accent: #5DB7DE;
-  --background: #F1E9DB;
-  --secondary: #A39B8B;
-  --secondary-dark: #716A5C;
-  --red: #C70039; 
+  --black: #07020d;
+  --accent: #5db7de;
+  --background: #f1e9db;
+  --secondary: #a39b8b;
+  --secondary-dark: #716a5c;
+  --red: #c70039;
 }
 
 body {

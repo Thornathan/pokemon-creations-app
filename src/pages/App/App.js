@@ -4,6 +4,7 @@ import "./App.css";
 import PokemonListPage from "../PokemonListPage/PokemonListPage";
 import AddPokemonPage from "../AddPokemonPage/AddPokemonPage";
 import EditPokemonPage from "../EditPokemonPage/EditPokemonPage";
+import ApiPokemonPageList from "../ApiPokemonListPage/ApiPokemonListPage";
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import userService from "../../utils/userService";
@@ -15,7 +16,7 @@ class App extends Component {
     types: [],
     user: userService.getUser(),
     pokemon: [],
-    pokemons: []
+    pokemonList: [],
   };
 
   handleLogout = () => {
@@ -30,7 +31,7 @@ class App extends Component {
     this.setState({
       types: typesFromAPI,
       pokemons: pokemonFromAPI,
-      pokemon: pokemon
+      pokemon: pokemon,
     });
     this.setState(
       {
@@ -80,10 +81,9 @@ class App extends Component {
     const pokemonFromAPI = await pokemonAPI.getAllPokemonAPI();
     this.setState({
       types: typesFromAPI,
-      pokemons: pokemonFromAPI,
-      pokemon: pokemon
+      pokemonList: pokemonFromAPI,
+      pokemon: pokemon,
     });
-    console.log(pokemon)
   }
 
   render() {
@@ -99,11 +99,15 @@ class App extends Component {
                   : ""}
                 &nbsp;&nbsp;&nbsp;
                 <NavLink exact to="/">
-                  POKEMON LIST
+                  Pokemon Creations
                 </NavLink>
                 &nbsp;&nbsp;&nbsp;
                 <NavLink exact to="/add">
-                  ADD POKEMON
+                  Create A Pokemon
+                </NavLink>
+                &nbsp;&nbsp;&nbsp;
+                <NavLink exact to="/api-pokemon">
+                  View All Pokemon
                 </NavLink>
                 &nbsp;&nbsp;&nbsp;
                 <NavLink exact to="/logout" onClick={this.handleLogout}>
@@ -188,6 +192,16 @@ class App extends Component {
                   <Redirect to="/login" />
                 )
               }
+            />
+            <Route
+              exact
+              path="/api-pokemon"
+              render={({ history }) => (
+                <ApiPokemonPageList
+                  history={history}
+                  pokemonList={this.state.pokemonList}
+                />
+              )}
             />
           </Switch>
         </main>
