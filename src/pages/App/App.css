@@ -3,6 +3,10 @@
   display: grid;
   grid-template-rows: 7vmin auto;
   min-height: 100vh;
+  background: url("https://github.com/ChrisStayte/ReactDex/blob/master/src/pattern.png?raw=true");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: repeat;
 }
 
 .App-header {
@@ -16,7 +20,6 @@
 }
 
 .App main {
-  background-color: var(--background);
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -26,6 +29,10 @@
 .App main h1 {
   color: var(--secondary-dark);
   margin-bottom: 5vmin;
+}
+
+body {
+  background-color: transparent !important;
 }
 
 .row {
