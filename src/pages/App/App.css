@@ -28,6 +28,6 @@
   margin-bottom: 5vmin;
 }
 
-.navbar {
-  background-color: #ef5350 !important;
+.row {
+  padding: 4rem;
 }
