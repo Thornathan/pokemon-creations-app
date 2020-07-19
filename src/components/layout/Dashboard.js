@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PokemonList from '../pokeApi/PokemonList'
-import SearchBar from '../search/SearchBar';
 
 export default class Dashboard extends Component {
   render() {
@@ -9,7 +8,6 @@ export default class Dashboard extends Component {
         <div className="col">
           <PokemonList />
         </div>
-        
       </div>
     )
   }

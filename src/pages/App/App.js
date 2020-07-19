@@ -1,15 +1,32 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 import { Route, Switch, Redirect, NavLink } from "react-router-dom";
 import "./App.css";
 import PokemonListPage from "../PokemonListPage/PokemonListPage";
 import AddPokemonPage from "../AddPokemonPage/AddPokemonPage";
 import EditPokemonPage from "../EditPokemonPage/EditPokemonPage";
-import ApiPokemonPageList from "../ApiPokemonListPage/ApiPokemonListPage";
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import userService from "../../utils/userService";
 import * as pokemonAPI from "../../utils/pokemonApi";
 import * as pokemonService from "../../utils/pokemonServices";
+import Dashboard from "../../components/layout/Dashboard";
+import Pokemon from "../../components/pokeApi/Pokemon";
+import Pokeball from "../../pokeball.png";
+
+const Branding = styled.a`
+  -moz-user-select: none;
+  -website-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -o-user-select: none;
+`;
+
+const Logo = styled.img`
+  height: 30px;
+  width: 30px;
+  margin-left: 2.5em;
+`;
 
 class App extends Component {
   state = {
@@ -17,6 +34,7 @@ class App extends Component {
     user: userService.getUser(),
     pokemon: [],
     pokemonList: [],
+    hoverNavBar: false,
   };
 
   handleLogout = () => {
@@ -75,10 +93,17 @@ class App extends Component {
     );
   };
 
+  hoverNavBar() {
+    window.scrollY <= 0
+      ? this.setState({ hoverNavBar: false })
+      : this.setState({ hoverNavBar: true });
+  }
+
   async componentDidMount() {
     const pokemon = await pokemonService.getAllPokemonAPI();
     const typesFromAPI = await pokemonAPI.getAllTypeAPI();
     const pokemonFromAPI = await pokemonAPI.getAllPokemonAPI();
+    window.addEventListener("scroll", this.hoverNavBar.bind(this), true);
     this.setState({
       types: typesFromAPI,
       pokemonList: pokemonFromAPI,
@@ -86,26 +111,46 @@ class App extends Component {
     });
   }
 
+  componentWillUnmount() {
+    // Added True To End To LIsten to All Events On Page
+    window.removeEventListener("scroll", this.hoverNavBar.bind(this), true);
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <nav>
+          <nav
+            className="navbar navbar-expand-md navbar-dark bg-dark fixed-top"
+            style={
+              this.state.hoverNavBar
+                ? {
+                    boxShadow:
+                      "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)",
+                    transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
+                    backgroundColor: "#ef5350 !important",
+                  }
+                : { backgroundColor: "transparent !important" }
+            }
+          >
+            <Branding
+              href="/"
+              className="navbar-brand col-sm-3 col-md-2 mr-0 align-items-center"
+            >
+              <Logo src={Pokeball} />
+              <h5>Pokemon Creations</h5>
+            </Branding>
             {userService.getUser() ? (
               <>
                 {userService.getUser().name
                   ? `WELCOME, ${userService.getUser().name.toUpperCase()}`
                   : ""}
                 &nbsp;&nbsp;&nbsp;
-                <NavLink exact to="/">
-                  Pokemon Creations
-                </NavLink>
-                &nbsp;&nbsp;&nbsp;
                 <NavLink exact to="/add">
                   Create A Pokemon
                 </NavLink>
                 &nbsp;&nbsp;&nbsp;
-                <NavLink exact to="/api-pokemon">
+                <NavLink exact to="/pokemon">
                   View All Pokemon
                 </NavLink>
                 &nbsp;&nbsp;&nbsp;
@@ -194,13 +239,13 @@ class App extends Component {
             />
             <Route
               exact
-              path="/api-pokemon"
-              render={({ history }) => (
-                <ApiPokemonPageList
-                  history={history}
-                  pokemonList={this.state.pokemonList}
-                />
-              )}
+              path="/pokemon"
+              component={Dashboard}
+            />
+            <Route 
+              exact 
+              path="/pokemon/:pokemonIndex" 
+              component={Pokemon}
             />
           </Switch>
         </main>

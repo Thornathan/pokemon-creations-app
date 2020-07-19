@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import spinner from '../layout/spinner.gif';
+import spinner from "../layout/spinner.gif";
 
 const Sprite = styled.img`
   width: 5em;
@@ -39,18 +39,17 @@ const StyledLink = styled(Link)`
 
 export default class PokemonCard extends Component {
   state = {
-    name: '',
-    imageUrl: '',
-    pokemonIndex: '',
+    name: "",
+    imageUrl: "",
+    pokemonIndex: "",
     imageLoading: true,
-    toManyRequests: false
+    toManyRequests: false,
   };
 
   componentDidMount() {
     const { name, url } = this.props;
 
-    const pokemonIndex = url.split('/')[url.split('/').length - 2];
-    //const imageUrl = `./sprites/pokemon/${pokemonIndex}.png`;
+    const pokemonIndex = url.split("/")[url.split("/").length - 2];
     const imageUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndex}.png?raw=true`;
 
     this.setState({ name, imageUrl, pokemonIndex });
@@ -65,8 +64,9 @@ export default class PokemonCard extends Component {
             {this.state.imageLoading ? (
               <img
                 src={spinner}
-                style={{ width: '5em', height: '5em' }}
+                style={{ width: "5em", height: "5em" }}
                 className="card-img-top rounded mx-auto d-block mt-2"
+                alt="no-img"
               />
             ) : null}
             <Sprite
@@ -76,10 +76,10 @@ export default class PokemonCard extends Component {
               onError={() => this.setState({ toManyRequests: true })}
               style={
                 this.state.toManyRequests
-                  ? { display: 'none' }
+                  ? { display: "none" }
                   : this.state.imageLoading
                   ? null
-                  : { display: 'block' }
+                  : { display: "block" }
               }
             />
             {this.state.toManyRequests ? (
@@ -93,9 +93,9 @@ export default class PokemonCard extends Component {
               <h6 className="card-title">
                 {this.state.name
                   .toLowerCase()
-                  .split(' ')
-                  .map(s => s.charAt(0).toUpperCase() + s.substring(1))
-                  .join(' ')}
+                  .split(" ")
+                  .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+                  .join(" ")}
               </h6>
             </div>
           </Card>

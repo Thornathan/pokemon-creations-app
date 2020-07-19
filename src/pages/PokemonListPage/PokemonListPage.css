@@ -4,3 +4,7 @@
   grid-template-rows: repeat(auto-fit, minmax(170px, 1fr));
   grid-gap: 20px;
 }
+
+h1 {
+  color: var(--accent);
+}
