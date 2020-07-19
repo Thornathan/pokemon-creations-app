@@ -57,7 +57,7 @@ class AddPokemonPage extends Component {
   render() {
     return (
       <div className="create-pokemon-bg">
-        <h1>Create A Pokemon</h1>
+        <h1>Create A Pokémon</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Pokemon's Name (required)</label>
@@ -70,7 +70,7 @@ class AddPokemonPage extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Pokemon's Type(s) (only one required)</label>
+            <label>Pokémon's Type(s) (only one required)</label>
             <select
               className="form-control"
               name="type"
@@ -91,7 +91,7 @@ class AddPokemonPage extends Component {
             </select>
           </div>
           <div className="form-group">
-            <label>Pokemon's HP</label>
+            <label>Pokémon's HP</label>
             <input
               className="form-control"
               name="hp"
@@ -100,7 +100,7 @@ class AddPokemonPage extends Component {
             />
           </div>
           <button type="submit" className="btn">
-            ADD POKEMON
+            Add Pokémon
           </button>
         </form>
       </div>

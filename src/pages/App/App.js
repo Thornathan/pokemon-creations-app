@@ -148,11 +148,11 @@ class App extends Component {
                   : ""}
 
                 <NavLink exact to="/add">
-                  Create A Pokemon
+                  Create A Pokémon
                 </NavLink>
 
                 <NavLink exact to="/pokemon">
-                  View All Pokemon
+                Pokédex
                 </NavLink>
 
                 <NavLink exact to="/logout" onClick={this.handleLogout}>
