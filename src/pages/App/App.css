@@ -38,3 +38,7 @@ body {
 .row {
   padding: 4rem;
 }
+
+.navbar {
+  background-color: #ef5350 !important;
+}
