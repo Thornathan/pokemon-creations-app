@@ -4,7 +4,7 @@
   --background: #f1e9db;
   --secondary: #a39b8b;
   --secondary-dark: #716a5c;
-  --red: #c70039;
+  --red: #ef5350;
 }
 
 body {
@@ -15,19 +15,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: transparent;
 }
 
 a {
-  color: var(--accent);
+  color: var(--background);
   padding: 1vmin;
   border-radius: 1vmin;
   text-decoration: none !important;
-}
-
-a:hover {
-  color: var(--black);
-  background-color: var(--accent);
 }
 
 a.active {

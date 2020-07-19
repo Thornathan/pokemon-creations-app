@@ -25,7 +25,6 @@ const Branding = styled.a`
 const Logo = styled.img`
   height: 30px;
   width: 30px;
-  margin-left: 2.5em;
 `;
 
 class App extends Component {
@@ -121,7 +120,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <nav
-            className="navbar navbar-expand-md navbar-dark bg-dark fixed-top"
+            className="navbar navbar-dark bg-dark fixed-top"
             style={
               this.state.hoverNavBar
                 ? {
@@ -137,23 +136,25 @@ class App extends Component {
               href="/"
               className="navbar-brand col-sm-3 col-md-2 mr-0 align-items-center"
             >
-              <Logo src={Pokeball} />
-              <h5>Pokemon Creations</h5>
+              <div className="logo">
+                <Logo src={Pokeball} />
+                <h5>P C</h5>
+              </div>
             </Branding>
             {userService.getUser() ? (
               <>
                 {userService.getUser().name
                   ? `WELCOME, ${userService.getUser().name.toUpperCase()}`
                   : ""}
-                &nbsp;&nbsp;&nbsp;
+
                 <NavLink exact to="/add">
                   Create A Pokemon
                 </NavLink>
-                &nbsp;&nbsp;&nbsp;
+
                 <NavLink exact to="/pokemon">
                   View All Pokemon
                 </NavLink>
-                &nbsp;&nbsp;&nbsp;
+
                 <NavLink exact to="/logout" onClick={this.handleLogout}>
                   LOGOUT
                 </NavLink>
@@ -163,11 +164,10 @@ class App extends Component {
                 <NavLink exact to="/signup">
                   SIGNUP
                 </NavLink>
-                &nbsp;&nbsp;&nbsp;
+
                 <NavLink exact to="/login">
                   LOGIN
                 </NavLink>
-                &nbsp;&nbsp;&nbsp;
               </>
             )}
           </nav>
@@ -200,6 +200,7 @@ class App extends Component {
               render={({ history }) =>
                 userService.getUser() ? (
                   <PokemonListPage
+                    component={Dashboard}
                     pokemon={this.state.pokemon}
                     handleDeletePokemon={this.handleDeletePokemon}
                   />
@@ -237,16 +238,8 @@ class App extends Component {
                 )
               }
             />
-            <Route
-              exact
-              path="/pokemon"
-              component={Dashboard}
-            />
-            <Route 
-              exact 
-              path="/pokemon/:pokemonIndex" 
-              component={Pokemon}
-            />
+            <Route exact path="/pokemon" component={Dashboard} />
+            <Route exact path="/pokemon/:pokemonIndex" component={Pokemon} />
           </Switch>
         </main>
       </div>

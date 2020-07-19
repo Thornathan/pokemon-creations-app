@@ -9,7 +9,30 @@ class AddPokemonPage extends Component {
       name: "",
       type: "",
       type2: "",
+      hp: "",
     },
+  };
+
+  typesFromAPI = () => {
+    return this.props.typesFromParent
+      .sort(function (a, b) {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      })
+      .map((type, idx) => (
+        <option
+          key={idx}
+          value={type.name}
+          defaultValue={type.name === this.state.formData.type}
+        >
+          {type.name.toUpperCase()}
+        </option>
+      ));
   };
 
   /*--- Handle Methods ---*/
@@ -33,7 +56,7 @@ class AddPokemonPage extends Component {
 
   render() {
     return (
-      <>
+      <div className="create-pokemon-bg">
         <h1>Create A Pokemon</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
@@ -55,15 +78,7 @@ class AddPokemonPage extends Component {
               onChange={this.handleChange}
             >
               <option>Choose a Type</option>
-              {this.props.typesFromParent.sort(function(a,b) {
-                if(a.name < b.name) {return -1;}
-                if(a.name > b.name) {return 1; }
-                return 0;
-                }).map((type, idx) => (
-                <option key={idx} value={type.name} defaultValue={type.name === this.state.formData.type}>
-                  {type.name.toUpperCase()}
-                </option>
-              ))}
+              {this.typesFromAPI()}
             </select>
             <select
               className="form-control"
@@ -72,22 +87,23 @@ class AddPokemonPage extends Component {
               onChange={this.handleChange}
             >
               <option>Choose a Type</option>
-              {this.props.typesFromParent.sort(function(a,b) {
-                if(a.name < b.name) {return -1;}
-                if(a.name > b.name) {return 1; }
-                return 0;
-                }).map((type, idx) => (
-                <option key={idx} value={type.name} defaultValue={type.name === this.state.formData.type2}>
-                  {type.name.toUpperCase()}
-                </option>
-              ))}
+              {this.typesFromAPI()}
             </select>
+          </div>
+          <div className="form-group">
+            <label>Pokemon's HP</label>
+            <input
+              className="form-control"
+              name="hp"
+              value={this.state.formData.hp}
+              onChange={this.handleChange}
+            />
           </div>
           <button type="submit" className="btn">
             ADD POKEMON
           </button>
         </form>
-      </>
+      </div>
     );
   }
 }

@@ -5,8 +5,8 @@ import PokemonCard from "../../components/PokemonCard/PokemonCard";
 function PokemonListPage({ pokemon, handleDeletePokemon }) {
   return (
     <>
-      <h1>Pokemon List</h1>
-      <div className="PokemonListPage-grid">
+      <h1>My Pokemon Creations</h1>
+      <div className="row pokemon-list">
         {pokemon ? pokemon.map((p) => (
           <PokemonCard
             key={p._id}

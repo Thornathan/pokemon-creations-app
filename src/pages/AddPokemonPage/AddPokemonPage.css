@@ -2,3 +2,14 @@
   margin-top: 3%;
 }
 
+.create-pokemon-bg {
+  background-color: var(--background);
+  border-radius: 1.0em;
+  padding: 1.5em;
+}
+
+.create-pokemon-bg .btn {
+  background-color: var(--red);
+  color: var(--background);
+  font-weight: bold;
+}
