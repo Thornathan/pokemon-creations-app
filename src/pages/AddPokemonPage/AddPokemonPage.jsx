@@ -120,10 +120,10 @@ class AddPokemonPage extends React.Component {
   render() {
     return (
       <div className="create-pokemon-bg">
-        <h1>Create A Pokémon</h1>
+        <h2>Create A Pokémon</h2>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label>Pokemon's Name</label>
+            <label> Name</label>
             <input
               className="form-control"
               name="name"
@@ -145,7 +145,7 @@ class AddPokemonPage extends React.Component {
             />
           </div>
           <div className="form-group">
-            <label>Pokémon's Type(s) (only one required)</label>
+            <label> Type(s) (only one required)</label>
             <select
               className="form-control"
               name="type"
@@ -166,7 +166,7 @@ class AddPokemonPage extends React.Component {
             </select>
           </div>
           <div className="form-group">
-            <label>Pokémon's Abilities (Choose up to 3)</label>
+            <label> Abilities (Choose up to 3)</label>
             <select
               className="form-control"
               name="ability1"
@@ -197,7 +197,7 @@ class AddPokemonPage extends React.Component {
             
           </div>
           <div className="form-group">
-            <label>Pokémon's Egg Group</label>
+            <label> Egg Group</label>
             <select
               className="form-control"
               name="eggGroup"
@@ -209,7 +209,7 @@ class AddPokemonPage extends React.Component {
             </select>
             </div>
             <div className="form-group">
-            <label>Pokémon's Hatch Steps</label>
+            <label> Hatch Steps</label>
             <input
               className="form-control"
               name="hatchSteps"
@@ -219,7 +219,7 @@ class AddPokemonPage extends React.Component {
               />
           </div>
           <div className="form-group">
-            <label>Pokémon's Female Ratio</label>
+            <label> Female Ratio</label>
             <select
               className="form-control"
               name="femaleRatio"
@@ -238,7 +238,17 @@ class AddPokemonPage extends React.Component {
             </select>
           </div>
           <div className="form-group">
-            <label>Pokémon's Height (ft)</label>
+            <label> Catch Rate </label>
+            <input
+              className="form-control"
+              name="catchRate"
+              placeholder="Enter Catch Rate -- 1(0%) - 255(100%)"
+              value={this.state.formData.catchRate}
+              onChange={this.handleChange}
+              />
+          </div>
+          <div className="form-group">
+            <label> Height (ft)</label>
             <input
               className="form-control"
               name="height"
@@ -248,7 +258,7 @@ class AddPokemonPage extends React.Component {
               />
           </div>
           <div className="form-group">
-            <label>Pokémon's Weight (lbs)</label>
+            <label> Weight (lbs)</label>
             <input
               className="form-control"
               name="weight"
@@ -257,19 +267,9 @@ class AddPokemonPage extends React.Component {
               onChange={this.handleChange}
               />
           </div>
+          <h3>Pokémon Stat's</h3>
           <div className="form-group">
-            <label>Pokémon's Catch Rate (Max 254 = 100% Catch Rate)</label>
-            <input
-              className="form-control"
-              name="catchRate"
-              placeholder="Enter Catch Rate -- Range: 1(0%) - 255(100%)"
-              value={this.state.formData.catchRate}
-              onChange={this.handleChange}
-              />
-          </div>
-          <h3>Pokemon Stat's</h3>
-          <div className="form-group">
-            <label>Pokémon's HP</label>
+            <label> HP</label>
             <input
               className="form-control"
               name="hp"
@@ -279,7 +279,7 @@ class AddPokemonPage extends React.Component {
             />
           </div>
           <div className="form-group">
-            <label>Pokémon's Attack</label>
+            <label> Attack</label>
             <input
               className="form-control"
               name="attack"
@@ -289,7 +289,7 @@ class AddPokemonPage extends React.Component {
             />
           </div>
           <div className="form-group">
-            <label>Pokémon's Defense</label>
+            <label> Defense</label>
             <input
               className="form-control"
               name="defense"
@@ -299,7 +299,7 @@ class AddPokemonPage extends React.Component {
             />
           </div>
           <div className="form-group">
-            <label>Pokémon's Speed</label>
+            <label> Speed</label>
             <input
               className="form-control"
               name="speed"
@@ -309,7 +309,7 @@ class AddPokemonPage extends React.Component {
             />
           </div>
           <div className="form-group">
-            <label>Pokémon's Special Attack</label>
+            <label> Special Attack</label>
             <input
               className="form-control"
               name="specialAttack"
@@ -319,7 +319,7 @@ class AddPokemonPage extends React.Component {
             />
           </div>
           <div className="form-group">
-            <label>Pokémon's Special Defense</label>
+            <label> Special Defense</label>
             <input
               className="form-control"
               name="specialDefense"
@@ -329,7 +329,7 @@ class AddPokemonPage extends React.Component {
             />
           </div>
           <div className="form-group">
-            <label>Pokémon's Effort Values</label>
+            <label> Effort Values</label>
             <input
               className="form-control"
               name="evs"
@@ -341,7 +341,7 @@ class AddPokemonPage extends React.Component {
           
 
           <button type="submit" className="btn">
-            Add Pokémon
+            Create Pokémon
           </button>
         </form>
       </div>

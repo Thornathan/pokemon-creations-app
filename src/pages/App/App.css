@@ -29,6 +29,11 @@
   margin-bottom: 5vmin;
 }
 
+.App main h2 {
+  color: var(--black);
+  margin-bottom: 5vmin;
+}
+
 body {
   background-color: transparent !important;
 }
