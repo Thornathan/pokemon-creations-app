@@ -1,6 +1,6 @@
 import React from "react";
 import "./PokemonListPage.css";
-import PokemonCard from "../../components/PokemonCard/PokemonCard";
+import PokemonCreationCard from "../../components/PokemonCreationCard/PokemonCreationCard";
 
 function PokemonListPage({ pokemon, handleDeletePokemon }) {
   return (
@@ -8,7 +8,7 @@ function PokemonListPage({ pokemon, handleDeletePokemon }) {
       <h1>My Pokémon Creations</h1>
       <div className="row pokemon-list">
         {pokemon ? pokemon.map((p) => (
-          <PokemonCard
+          <PokemonCreationCard
             key={p._id}
             pokemonFromParent={p}
             handleDeletePokemon={handleDeletePokemon}

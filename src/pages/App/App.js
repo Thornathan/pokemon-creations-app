@@ -12,6 +12,7 @@ import * as pokemonAPI from "../../utils/pokemonApi";
 import * as pokemonService from "../../utils/pokemonServices";
 import Dashboard from "../../components/layout/Dashboard";
 import Pokemon from "../../components/pokeApi/Pokemon";
+import PokemonDetails from "../../components/PokemonDetails/PokemonDetails"
 import Pokeball from "../../pokeball.png";
 
 const Branding = styled.a`
@@ -238,6 +239,7 @@ class App extends Component {
                 )
               }
             />
+            <Route exact path="/:id" component={PokemonDetails} />
             <Route exact path="/pokemon" component={Dashboard} />
             <Route exact path="/pokemon/:pokemonIndex" component={Pokemon} />
           </Switch>
