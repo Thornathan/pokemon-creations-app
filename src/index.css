@@ -37,3 +37,9 @@ dl {
 .margin-left-10 {
   margin-left: 10px;
 }
+
+input {
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+}

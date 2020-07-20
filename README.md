@@ -1,10 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Welcome To Pokemon Creations
 
-## Available Scripts
+This is an app that was designed for creative pokemon enthusiasts who would like to create their very own pokemon! Well start off with the Home Page
 
-In the project directory, you can run:
-
-### `npm start`
+### `Pokemon Creations`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
