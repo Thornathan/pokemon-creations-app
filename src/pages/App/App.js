@@ -31,9 +31,9 @@ const Logo = styled.img`
 class App extends Component {
   state = {
     types: [],
+    eggGroups: [],
     user: userService.getUser(),
     pokemon: [],
-    pokemonList: [],
     hoverNavBar: false,
   };
 
@@ -45,10 +45,8 @@ class App extends Component {
   handleSignupOrLogin = async () => {
     const pokemon = await pokemonService.getAllPokemonAPI();
     const typesFromAPI = await pokemonAPI.getAllTypeAPI();
-    const pokemonFromAPI = await pokemonAPI.getAllPokemonAPI();
     this.setState({
       types: typesFromAPI,
-      pokemons: pokemonFromAPI,
       pokemon: pokemon,
     });
     this.setState(
@@ -102,12 +100,12 @@ class App extends Component {
   async componentDidMount() {
     const pokemon = await pokemonService.getAllPokemonAPI();
     const typesFromAPI = await pokemonAPI.getAllTypeAPI();
-    const pokemonFromAPI = await pokemonAPI.getAllPokemonAPI();
+    const eggGroups = await pokemonAPI.getAllEggGroupsAPI();
     window.addEventListener("scroll", this.hoverNavBar.bind(this), true);
     this.setState({
       types: typesFromAPI,
-      pokemonList: pokemonFromAPI,
       pokemon: pokemon,
+      eggGroups: eggGroups,
     });
   }
 
@@ -217,6 +215,7 @@ class App extends Component {
                   <AddPokemonPage
                     handleAddPokemon={this.handleAddPokemon}
                     typesFromParent={this.state.types}
+                    eggGroups={this.state.eggGroups}
                   />
                 ) : (
                   <Redirect to="/login" />

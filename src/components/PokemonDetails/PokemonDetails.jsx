@@ -39,7 +39,7 @@ export default class PokemonDetails extends Component {
       specialDefense: "",
       height: "",
       weight: "",
-      eggGroups: "",
+      eggGroup: "",
       catchRate: "",
       abilities: "",
       genderRatioMale: "",
@@ -47,30 +47,42 @@ export default class PokemonDetails extends Component {
       evs: "",
       hatchSteps: "",
       themeColor: "#EF5350",
-
-    }
+    };
   }
 
   async componentDidMount() {
     const id = this.getUrlParam();
     const pokemon = await getPokemonDetailAPI(id);
-    console.log("componentDidMount", pokemon);
     this.populatePokemonDetails(pokemon);
   }
 
   getUrlParam() {
     const url = window.location.href;
-    return url.slice(url.indexOf('creations/') + 10)
+    return url.slice(url.indexOf("creations/") + 10);
   }
 
   populatePokemonDetails(pokemon) {
     const types = [];
-    if (pokemon.type) types.push(pokemon.type)
-    if (pokemon.type2) types.push(pokemon.type2)
+    const height =
+      Math.round((pokemon.height * 0.328084 + 0.00001) * 100) / 100;
+    const weight =
+      Math.round((pokemon.weight * 0.220462 + 0.00001) * 100) / 100;
+    if (pokemon.type) types.push(pokemon.type);
+    if (pokemon.type2) types.push(pokemon.type2);
+    const themeColor = `${TYPE_COLORS[types[types.length - 1]]}`;
     this.setState({
       name: pokemon.name,
       types,
       hp: pokemon.hp,
+      attack: pokemon.attack,
+      defense: pokemon.defense,
+      speed: pokemon.speed,
+      specialAttack: pokemon.specialAttack,
+      specialDefense: pokemon.specialDefense,
+      eggGroup: pokemon.eggGroup,
+      height,
+      weight,
+      themeColor,
     });
   }
 
@@ -81,7 +93,7 @@ export default class PokemonDetails extends Component {
           <div className="card-header">
             <div className="row">
               <div className="col-5">
-                <h5>{this.state.pokemonIndex}</h5>
+                <h5>{this.state.name}</h5>
               </div>
               <div className="col-7">
                 <div className="float-right">
@@ -111,6 +123,7 @@ export default class PokemonDetails extends Component {
                 <img
                   src={this.state.imageUrl}
                   className="card-img-top rounded mx-auto mt-2"
+                  alt="pokemon"
                 />
               </div>
               <div className="col-md-9">
@@ -323,10 +336,16 @@ export default class PokemonDetails extends Component {
               <div className="col-md-6">
                 <div className="row">
                   <div className="col-6">
-                    <h6 className="float-right">Egg Groups:</h6>
+                    <h6 className="float-right">Egg Group:</h6>
                   </div>
                   <div className="col-6">
-                    <h6 className="float-left">{this.state.eggGroups} </h6>
+                    <h6 className="float-left">
+                      {this.state.eggGroup
+                        .toLowerCase()
+                        .split(" ")
+                        .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+                        .join(" ")}
+                    </h6>
                   </div>
                   <div className="col-6">
                     <h6 className="float-right">Hatch Steps:</h6>

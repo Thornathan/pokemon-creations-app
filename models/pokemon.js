@@ -19,7 +19,7 @@ var pokemonSchema = new Schema(
     description: { type: String },
     height: { type: String },
     weight: { type: String },
-    eggGroups: { type: String },
+    eggGroup: { type: String },
     catchRate: { type: String },
     abilities: { type: String },
     genderRatioMale: { type: String },
