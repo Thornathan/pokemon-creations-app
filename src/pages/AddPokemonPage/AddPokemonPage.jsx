@@ -213,7 +213,7 @@ class AddPokemonPage extends React.Component {
             <input
               className="form-control"
               name="hatchSteps"
-              placeholder="Enter Hatch Steps -- Range: (1-120)"
+              placeholder="Enter Hatch Steps - (1-120)"
               value={this.state.formData.hatchSteps}
               onChange={this.handleChange}
               />
@@ -242,7 +242,7 @@ class AddPokemonPage extends React.Component {
             <input
               className="form-control"
               name="catchRate"
-              placeholder="Enter Catch Rate -- 1(0%) - 255(100%)"
+              placeholder="Enter Catch Rate - (1-255)"
               value={this.state.formData.catchRate}
               onChange={this.handleChange}
               />
@@ -252,7 +252,7 @@ class AddPokemonPage extends React.Component {
             <input
               className="form-control"
               name="height"
-              placeholder="Enter A Height"
+              placeholder="Enter A Height ex. 6.3=6'3"
               value={this.state.formData.height}
               onChange={this.handleChange}
               />
@@ -262,7 +262,7 @@ class AddPokemonPage extends React.Component {
             <input
               className="form-control"
               name="weight"
-              placeholder="Enter A Weight"
+              placeholder="Enter A Weight ex.(100.30)"
               value={this.state.formData.weight}
               onChange={this.handleChange}
               />

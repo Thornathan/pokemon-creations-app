@@ -44,9 +44,9 @@ function PokemonCreationCard({ pokemonFromParent, handleDeletePokemon }) {
   };
     return (
       <div className="col-md-3 col-sm-6 mb-5">
-        <StyledLink to={`/creations/${pokemonFromParent._id}`}>
           <div className="card">
             <h3 className="card-header">{pokemonFromParent.name}</h3>
+        <StyledLink to={`/creations/${pokemonFromParent._id}`}>
             <div className="card-body">
               <dl>
                 <dt>Owner</dt>
@@ -55,6 +55,7 @@ function PokemonCreationCard({ pokemonFromParent, handleDeletePokemon }) {
                 {pokemonTypes()}
               </dl>
             </div>
+              </StyledLink>
   
             <div className="card-footer">
               <Link
@@ -74,7 +75,6 @@ function PokemonCreationCard({ pokemonFromParent, handleDeletePokemon }) {
               </button>
             </div>
           </div>
-        </StyledLink>
       </div>
     );
 }

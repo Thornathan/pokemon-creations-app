@@ -94,10 +94,10 @@ class EditPokemonPage extends Component {
     return (
       <>
       <div className="edit-pokemon-bg">
-        <h1>Edit Pokemon</h1>
+        <h2>Edit Pokémon</h2>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label>Pokemon's Name (required)</label>
+            <label>Name</label>
             <input
               className="form-control"
               name="name"
@@ -117,7 +117,7 @@ class EditPokemonPage extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Pokémon's Type(s) (only one required)</label>
+            <label>Type(s) (only one required)</label>
             <select
               className="form-control"
               name="type"
@@ -138,7 +138,7 @@ class EditPokemonPage extends Component {
             </select>
           </div>
           <div className="form-group">
-            <label>Pokémon's Abilities (Choose up to 3)</label>
+            <label> Abilities (Choose up to 3)</label>
             <select
               className="form-control"
               name="ability1"
@@ -169,7 +169,7 @@ class EditPokemonPage extends Component {
             
           </div>
           <div className="form-group">
-            <label>Pokémon's Egg Group</label>
+            <label> Egg Group</label>
             <select
               className="form-control"
               name="eggGroup"
@@ -181,7 +181,7 @@ class EditPokemonPage extends Component {
             </select>
             </div>
             <div className="form-group">
-            <label>Pokémon's Hatch Steps</label>
+            <label> Hatch Steps</label>
             <input
               className="form-control"
               name="hatchSteps"
@@ -190,7 +190,7 @@ class EditPokemonPage extends Component {
               />
           </div>
           <div className="form-group">
-            <label>Pokémon's Female Ratio</label>
+            <label> Female Ratio</label>
             <select
               className="form-control"
               name="femaleRatio"
@@ -209,7 +209,7 @@ class EditPokemonPage extends Component {
             </select>
           </div>
           <div className="form-group">
-            <label>Pokémon's Height (ft)</label>
+            <label> Height (ft)</label>
             <input
               className="form-control"
               name="height"
@@ -218,7 +218,7 @@ class EditPokemonPage extends Component {
               />
           </div>
           <div className="form-group">
-            <label>Pokémon's Weight (lbs)</label>
+            <label> Weight (lbs)</label>
             <input
               className="form-control"
               name="weight"
@@ -227,7 +227,7 @@ class EditPokemonPage extends Component {
               />
           </div>
           <div className="form-group">
-            <label>Pokémon's Catch Rate (Max 254 = 100% Catch Rate)</label>
+            <label> Catch Rate</label>
             <input
               className="form-control"
               name="catchRate"
@@ -235,9 +235,9 @@ class EditPokemonPage extends Component {
               onChange={this.handleChange}
               />
           </div>
-          <h3>Pokemon Stat's</h3>
+          <h3>Pokémon Stats</h3>
           <div className="form-group">
-            <label>Pokémon's HP</label>
+            <label> HP</label>
             <input
               className="form-control"
               name="hp"
@@ -246,7 +246,7 @@ class EditPokemonPage extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Pokémon's Attack</label>
+            <label> Attack</label>
             <input
               className="form-control"
               name="attack"
@@ -255,7 +255,7 @@ class EditPokemonPage extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Pokémon's Defense</label>
+            <label> Defense</label>
             <input
               className="form-control"
               name="defense"
@@ -264,7 +264,7 @@ class EditPokemonPage extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Pokémon's Speed</label>
+            <label> Speed</label>
             <input
               className="form-control"
               name="speed"
@@ -273,7 +273,7 @@ class EditPokemonPage extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Pokémon's Special Attack</label>
+            <label> Special Attack</label>
             <input
               className="form-control"
               name="specialAttack"
@@ -282,7 +282,7 @@ class EditPokemonPage extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Pokémon's Special Defense</label>
+            <label> Special Defense</label>
             <input
               className="form-control"
               name="specialDefense"
@@ -291,7 +291,7 @@ class EditPokemonPage extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Pokémon's Effort Values</label>
+            <label> Effort Values</label>
             <input
               className="form-control"
               name="evs"
@@ -300,7 +300,7 @@ class EditPokemonPage extends Component {
             />
           </div>
           <button type="submit" className="btn btn-xs">
-            SAVE POKEMON
+            Save Pokémon
           </button>
           &nbsp;&nbsp;
           <Link to="/">CANCEL</Link>

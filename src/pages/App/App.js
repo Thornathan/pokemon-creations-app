@@ -154,7 +154,7 @@ class App extends Component {
                 <NavLink exact to="/pokemon">
                 Pokédex
                 </NavLink>
-                <a href="https://pokemon.alexonsager.net/" target="_blank" rel="noopener noreferrer">Pokemon Fusion</a>  
+                <a href="https://pokemon.alexonsager.net/" target="_blank" rel="noopener noreferrer">Pokémon Fusion</a>  
                 <NavLink exact to="/logout" onClick={this.handleLogout}>
                   LOGOUT
                 </NavLink>

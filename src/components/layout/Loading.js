@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
-// import ReactLoading from 'react-loading';
-// import spinner from './spinner.gif';
+import React, { Component } from "react";
 
 export default class Loading extends Component {
   render() {
     return (
       <React.Fragment>
-        <h5>Getting Pokemon...</h5>
+        <h1>Loading Pokemon...</h1>
       </React.Fragment>
     );
   }
