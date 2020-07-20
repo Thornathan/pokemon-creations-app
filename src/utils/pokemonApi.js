@@ -11,3 +11,9 @@ export function getAllEggGroupsAPI() {
   .then(res => res.json())
   .then(pokemonData => pokemonData['results']);
 }
+
+export function getAllAbilitiesAPI() {
+  return fetch(`${BASE_URL}/ability?limit=293`)
+  .then(res => res.json())
+  .then(pokemonData => pokemonData['results']);
+}

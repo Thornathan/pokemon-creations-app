@@ -41,7 +41,7 @@ export default class PokemonDetails extends Component {
       weight: "",
       eggGroup: "",
       catchRate: "",
-      abilities: "",
+      abilities: [],
       genderRatioMale: "",
       genderRatioFemale: "",
       evs: "",
@@ -63,25 +63,40 @@ export default class PokemonDetails extends Component {
 
   populatePokemonDetails(pokemon) {
     const types = [];
-    const height =
-      Math.round((pokemon.height * 0.328084 + 0.00001) * 100) / 100;
-    const weight =
-      Math.round((pokemon.weight * 0.220462 + 0.00001) * 100) / 100;
     if (pokemon.type) types.push(pokemon.type);
     if (pokemon.type2) types.push(pokemon.type2);
+    let abilities = [];
+    if(pokemon.ability1) abilities.push(pokemon.ability1);
+    if(pokemon.ability2) abilities.push(pokemon.ability2);
+    if(pokemon.ability3) abilities.push(pokemon.ability3);
+    abilities = abilities.map(ability => {
+      return ability.toLowerCase().split('-').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');
+    }).join(', ');
+    const femaleRate = pokemon.femaleRatio;
+    const genderRatioFemale = 12.5 * femaleRate;
+    const genderRatioMale = 12.5 * (8 - femaleRate);
+    const catchRate = Math.round((100 / 255) * 254);
+    const hatchSteps = 255 * (pokemon.hatchSteps + 1);
     const themeColor = `${TYPE_COLORS[types[types.length - 1]]}`;
     this.setState({
       name: pokemon.name,
+      description: pokemon.description,
       types,
+      abilities,
+      genderRatioFemale,
+      genderRatioMale,
+      catchRate,
+      hatchSteps,
+      eggGroup: pokemon.eggGroup,
       hp: pokemon.hp,
       attack: pokemon.attack,
       defense: pokemon.defense,
       speed: pokemon.speed,
       specialAttack: pokemon.specialAttack,
       specialDefense: pokemon.specialDefense,
-      eggGroup: pokemon.eggGroup,
-      height,
-      weight,
+      evs: pokemon.evs,
+      height: pokemon.height,
+      weight: pokemon.weight,
       themeColor,
     });
   }

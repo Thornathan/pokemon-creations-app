@@ -32,6 +32,7 @@ class App extends Component {
   state = {
     types: [],
     eggGroups: [],
+    abilities: [],
     user: userService.getUser(),
     pokemon: [],
     hoverNavBar: false,
@@ -44,9 +45,7 @@ class App extends Component {
 
   handleSignupOrLogin = async () => {
     const pokemon = await pokemonService.getAllPokemonAPI();
-    const typesFromAPI = await pokemonAPI.getAllTypeAPI();
     this.setState({
-      types: typesFromAPI,
       pokemon: pokemon,
     });
     this.setState(
@@ -101,11 +100,13 @@ class App extends Component {
     const pokemon = await pokemonService.getAllPokemonAPI();
     const typesFromAPI = await pokemonAPI.getAllTypeAPI();
     const eggGroups = await pokemonAPI.getAllEggGroupsAPI();
+    const abilities = await pokemonAPI.getAllAbilitiesAPI();
     window.addEventListener("scroll", this.hoverNavBar.bind(this), true);
     this.setState({
       types: typesFromAPI,
       pokemon: pokemon,
       eggGroups: eggGroups,
+      abilities: abilities,
     });
   }
 
@@ -153,7 +154,7 @@ class App extends Component {
                 <NavLink exact to="/pokemon">
                 Pokédex
                 </NavLink>
-                <a href="https://pokemon.alexonsager.net/" target="_blank">Pokemon Fusion</a>  
+                <a href="https://pokemon.alexonsager.net/" target="_blank" rel="noopener noreferrer">Pokemon Fusion</a>  
                 <NavLink exact to="/logout" onClick={this.handleLogout}>
                   LOGOUT
                 </NavLink>
@@ -216,6 +217,7 @@ class App extends Component {
                     handleAddPokemon={this.handleAddPokemon}
                     typesFromParent={this.state.types}
                     eggGroups={this.state.eggGroups}
+                    abilities={this.state.abilities}
                   />
                 ) : (
                   <Redirect to="/login" />
