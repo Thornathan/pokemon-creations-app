@@ -79,6 +79,7 @@ export default class PokemonDetails extends Component {
     const hatchSteps = 255 * (pokemon.hatchSteps + 1);
     const themeColor = `${TYPE_COLORS[types[types.length - 1]]}`;
     this.setState({
+      user: pokemon.user,
       name: pokemon.name,
       description: pokemon.description,
       types,
@@ -384,7 +385,9 @@ export default class PokemonDetails extends Component {
               </div>
             </div>
           </div>
-          <div class="card-footer text-muted"></div>
+          <div class="card-footer">
+            This Pokemon Was Created With Love
+          </div>
         </div>
       </div>
     );
