@@ -1,0 +1,20 @@
+.form-control {
+  margin-top: 3%;
+}
+
+.edit-pokemon-bg {
+  background-color: var(--background);
+  border-radius: 2.0em;
+  padding: 3.5em;
+  margin: 2.5em;
+}
+
+.edit-pokemon-bg .btn {
+  background-color: var(--red);
+  color: var(--background);
+  font-weight: bold;
+}
+
+.edit-pokemon-bg h3 {
+  margin: 1.0em;
+}

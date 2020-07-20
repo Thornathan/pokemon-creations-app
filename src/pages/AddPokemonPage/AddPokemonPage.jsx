@@ -39,6 +39,25 @@ class AddPokemonPage extends React.Component {
     });
   }
 
+  /*--- Handle Methods ---*/
+
+  handleChange = (e) => {
+    const formDataAsUserTypes = {
+      ...this.state.formData,
+      [e.target.name]: e.target.value,
+    };
+    this.setState({
+      formData: formDataAsUserTypes,
+    });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.handleAddPokemon(this.state.formData);
+  };
+
+  /*--- Lifecycle Methods ---*/
+
   typesFromAPI = () => {
     return this.props.typesFromParent
       .sort(function (a, b) {
@@ -102,25 +121,6 @@ class AddPokemonPage extends React.Component {
       </option>
     ));
   }
-
-  /*--- Handle Methods ---*/
-
-  handleChange = (e) => {
-    const formDataAsUserTypes = {
-      ...this.state.formData,
-      [e.target.name]: e.target.value,
-    };
-    this.setState({
-      formData: formDataAsUserTypes,
-    });
-  };
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.handleAddPokemon(this.state.formData);
-  };
-
-  /*--- Lifecycle Methods ---*/
 
   render() {
     return (

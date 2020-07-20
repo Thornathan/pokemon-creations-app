@@ -233,6 +233,8 @@ class App extends Component {
                     handleUpdatePokemon={this.handleUpdatePokemon}
                     location={location}
                     typesFromParent={this.state.types}
+                    eggGroups={this.state.eggGroups}
+                    abilities={this.state.abilities}
                   />
                 ) : (
                   <Redirect to="/login" />
