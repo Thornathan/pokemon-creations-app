@@ -1,5 +1,5 @@
 import React from "react";
-// import ImageUploader from "react-images-upload";
+
 import "./AddPokemonPage.css";
 
 class AddPokemonPage extends React.Component {
@@ -28,16 +28,11 @@ class AddPokemonPage extends React.Component {
         specialAttack: "",
         specialDefense: "",
         evs: '',
-        pictures: [],
       },
     };
-    this.onDrop = this.onDrop.bind(this);
+    
   }
-  onDrop(picture) {
-    this.setState({
-      pictures: this.state.formData.pictures.concat(picture),
-    });
-  }
+  
 
   /*--- Handle Methods ---*/
 
@@ -344,15 +339,6 @@ class AddPokemonPage extends React.Component {
             />
           </div>
           
-          {
-          // TODO: Implementing the Image Upload
-          /* <ImageUploader
-            withIcon={true}
-            buttonText="Choose images"
-            onChange={this.onDrop}
-            imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-            maxFileSize={5242880}
-          /> */}
 
           <button type="submit" className="btn">
             Add Pokémon

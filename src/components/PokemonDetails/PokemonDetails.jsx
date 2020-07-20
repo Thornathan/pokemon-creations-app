@@ -26,6 +26,7 @@ export default class PokemonDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      user: "",
       name: "",
       types: [],
       description: "",
@@ -66,17 +67,23 @@ export default class PokemonDetails extends Component {
     if (pokemon.type) types.push(pokemon.type);
     if (pokemon.type2) types.push(pokemon.type2);
     let abilities = [];
-    if(pokemon.ability1) abilities.push(pokemon.ability1);
-    if(pokemon.ability2) abilities.push(pokemon.ability2);
-    if(pokemon.ability3) abilities.push(pokemon.ability3);
-    abilities = abilities.map(ability => {
-      return ability.toLowerCase().split('-').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');
-    }).join(', ');
+    if (pokemon.ability1) abilities.push(pokemon.ability1);
+    if (pokemon.ability2) abilities.push(pokemon.ability2);
+    if (pokemon.ability3) abilities.push(pokemon.ability3);
+    abilities = abilities
+      .map((ability) => {
+        return ability
+          .toLowerCase()
+          .split("-")
+          .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+          .join(" ");
+      })
+      .join(", ");
     const femaleRate = pokemon.femaleRatio;
     const genderRatioFemale = 12.5 * femaleRate;
     const genderRatioMale = 12.5 * (8 - femaleRate);
     const catchRate = Math.round((100 / 255) * 254);
-    const hatchSteps = 255 * (pokemon.hatchSteps + 1);
+    const hatchSteps = 200 * (pokemon.hatchSteps + 1);
     const themeColor = `${TYPE_COLORS[types[types.length - 1]]}`;
     this.setState({
       user: pokemon.user,
@@ -292,7 +299,7 @@ export default class PokemonDetails extends Component {
           </div>
           <hr />
           <div className="card-body">
-            <h5 class="card-title text-center">Profile</h5>
+            <h5 className="card-title text-center">Profile</h5>
             <div className="row">
               <div className="col-md-6">
                 <div className="row">
@@ -318,9 +325,9 @@ export default class PokemonDetails extends Component {
                     <h6 className="float-right">Gender Ratio:</h6>
                   </div>
                   <div className="col-6">
-                    <div class="progress">
+                    <div className="progress">
                       <div
-                        class="progress-bar"
+                        className="progress-bar"
                         role="progressbar"
                         style={{
                           width: `${this.state.genderRatioFemale}%`,
@@ -333,7 +340,7 @@ export default class PokemonDetails extends Component {
                         <small>{this.state.genderRatioFemale}</small>
                       </div>
                       <div
-                        class="progress-bar"
+                        className="progress-bar"
                         role="progressbar"
                         style={{
                           width: `${this.state.genderRatioMale}%`,
@@ -385,9 +392,7 @@ export default class PokemonDetails extends Component {
               </div>
             </div>
           </div>
-          <div class="card-footer">
-            This Pokemon Was Created With Love
-          </div>
+          <div className="card-footer">This Pokemon Was Created With Love By {this.state.user}</div>
         </div>
       </div>
     );

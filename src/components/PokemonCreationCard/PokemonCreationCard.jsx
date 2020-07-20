@@ -15,7 +15,6 @@ function PokemonCreationCard({ pokemonFromParent, handleDeletePokemon }) {
   
 
   const ownerText = () => {
-    console.log(pokemonFromParent);
     let result = "";
     result = pokemonFromParent.user.name
       ? `${pokemonFromParent.user.name
