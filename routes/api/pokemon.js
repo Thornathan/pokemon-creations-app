@@ -3,6 +3,7 @@ var router = express.Router();
 var pokemonCtrl = require('../../controllers/api/pokemon');
 
 router.get('/',checkAuth, pokemonCtrl.index);
+router.get('/:id', checkAuth, pokemonCtrl.show)
 router.post('/',checkAuth, pokemonCtrl.create);
 router.put('/:id',checkAuth, pokemonCtrl.update);
 router.delete('/:id',checkAuth, pokemonCtrl.delete);

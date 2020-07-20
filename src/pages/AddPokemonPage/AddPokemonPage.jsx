@@ -1,17 +1,28 @@
 import React, { Component } from "react";
+import ImageUploader from "react-images-upload";
 import "./AddPokemonPage.css";
 
-class AddPokemonPage extends Component {
-  /*--- State ---*/
-
-  state = {
-    formData: {
-      name: "",
-      type: "",
-      type2: "",
-      hp: "",
-    },
-  };
+class AddPokemonPage extends React.Component {
+  constructor(props) {
+    super(props);
+    /*--- State ---*/
+    this.state = {
+      formData: {
+        name: "",
+        type: "",
+        type2: "",
+        hp: "",
+        pictures: [],
+      },
+    };
+    this.onDrop = this.onDrop.bind(this);
+  }
+  onDrop(picture) {
+    console.log(this.state);
+    this.setState({
+      pictures: this.state.formData.pictures.concat(picture),
+    });
+  }
 
   typesFromAPI = () => {
     return this.props.typesFromParent
@@ -99,6 +110,13 @@ class AddPokemonPage extends Component {
               onChange={this.handleChange}
             />
           </div>
+          <ImageUploader
+            withIcon={true}
+            buttonText="Choose images"
+            onChange={this.onDrop}
+            imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+            maxFileSize={5242880}
+          />
           <button type="submit" className="btn">
             Add Pokémon
           </button>

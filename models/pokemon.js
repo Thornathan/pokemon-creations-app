@@ -5,6 +5,8 @@ var pokemonSchema = new Schema(
   {
     user: { type: Schema.Types.ObjectId, ref: "User" },
     name: { type: String, required: true },
+    // TODO: Adding a picture, incorporate at a later date
+    // pictures: {type: File},
     type: { type: String },
     type2: { type: String },
     hp: { type: String },

@@ -17,6 +17,7 @@
     "pokedex-promise-v2": "^3.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-images-upload": "^1.2.8",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "serve-favicon": "^2.5.0",

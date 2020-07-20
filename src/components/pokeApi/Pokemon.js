@@ -19,7 +19,8 @@ const TYPE_COLORS = {
   psychic: 'ED4882',
   rock: 'B9A156',
   steel: 'B5B5C3',
-  water: '3295F6'
+  water: '3295F6',
+  unknown: 'ffffff'
 };
 
 export default class Pokemon extends Component {
@@ -189,7 +190,7 @@ export default class Pokemon extends Component {
   render() {
     return (
       <div className="col">
-        <div className="card">
+        <div className="card pokemon-card">
           <div className="card-header">
             <div className="row">
               <div className="col-5">

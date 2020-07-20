@@ -2,6 +2,7 @@ const Pokemon = require("../../models/pokemon");
 
 module.exports = {
   index,
+  show,
   create,
   update,
   delete: deleteOne,
@@ -11,6 +12,16 @@ module.exports = {
 async function index(req, res) {
   try {
     const pokemon = await Pokemon.find({ user: req.user._id }).populate("user");
+    res.status(200).json(pokemon);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+}
+
+// show
+async function show(req, res) {
+  try {
+    const pokemon = await Pokemon.findById(req.params.id);
     res.status(200).json(pokemon);
   } catch (err) {
     res.status(500).json(err);

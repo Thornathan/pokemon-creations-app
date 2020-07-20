@@ -45,10 +45,10 @@ function PokemonCreationCard({ pokemonFromParent, handleDeletePokemon }) {
   };
     return (
       <div className="col-md-3 col-sm-6 mb-5">
-        <StyledLink to={`/${pokemonFromParent._id}`}>
+        <StyledLink to={`/creations/${pokemonFromParent._id}`}>
           <div className="card">
             <h3 className="card-header">{pokemonFromParent.name}</h3>
-            <div className="card-body mx-auto">
+            <div className="card-body">
               <dl>
                 <dt>Owner</dt>
                 {ownerText()}

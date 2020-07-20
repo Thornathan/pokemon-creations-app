@@ -155,7 +155,7 @@ class App extends Component {
                 <NavLink exact to="/pokemon">
                 Pokédex
                 </NavLink>
-
+                <a href="https://pokemon.alexonsager.net/" target="_blank">Pokemon Fusion</a>  
                 <NavLink exact to="/logout" onClick={this.handleLogout}>
                   LOGOUT
                 </NavLink>
@@ -201,7 +201,6 @@ class App extends Component {
               render={({ history }) =>
                 userService.getUser() ? (
                   <PokemonListPage
-                    component={Dashboard}
                     pokemon={this.state.pokemon}
                     handleDeletePokemon={this.handleDeletePokemon}
                   />
@@ -239,7 +238,7 @@ class App extends Component {
                 )
               }
             />
-            <Route exact path="/:id" component={PokemonDetails} />
+            <Route exact path="/creations/:id" component={PokemonDetails} />
             <Route exact path="/pokemon" component={Dashboard} />
             <Route exact path="/pokemon/:pokemonIndex" component={Pokemon} />
           </Switch>

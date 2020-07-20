@@ -2,7 +2,6 @@
   min-height: 100vh;
   display: grid;
   grid-template-rows: 7vmin auto;
-  min-height: 100vh;
   background: url("https://github.com/ChrisStayte/ReactDex/blob/master/src/pattern.png?raw=true");
   background-attachment: fixed;
   background-position: center;
@@ -41,6 +40,7 @@
 
 .pokemon-list {
   padding: 4rem;
+  width: 100%;
 }
 
 .logo {
@@ -68,4 +68,8 @@
 
 .card:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.pokemon-card {
+  margin-top: 4em;
 }
