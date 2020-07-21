@@ -5,7 +5,9 @@ import PokemonCreationCard from "../../components/PokemonCreationCard/PokemonCre
 function PokemonListPage({ pokemon, handleDeletePokemon }) {
   return (
     <>
-      <h1>My Pokémon Creations</h1>
+      <div className="row">
+        <h1>Pokémon Creations</h1>
+      </div>
       <div className="row pokemon-list">
         {pokemon
           ? pokemon.map((p) => (

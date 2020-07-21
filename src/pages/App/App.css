@@ -26,7 +26,7 @@
 
 .App main h1 {
   color: var(--background);
-  /* margin-bottom: 5vmin; */
+  margin-bottom: 5vmin;
   margin-top: 0;
 }
 
