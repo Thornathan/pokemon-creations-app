@@ -27,6 +27,7 @@ export default class PokemonDetails extends Component {
     super(props);
     this.state = {
       user: "",
+      imageURL: "",
       name: "",
       types: [],
       description: "",
@@ -55,6 +56,7 @@ export default class PokemonDetails extends Component {
     const id = this.getUrlParam();
     const pokemon = await getPokemonDetailAPI(id);
     this.populatePokemonDetails(pokemon);
+    console.log(pokemon.imageURL)
   }
 
   getUrlParam() {
@@ -85,8 +87,10 @@ export default class PokemonDetails extends Component {
     const catchRate = Math.round((100 / 255) * 254);
     const hatchSteps = 200 * (pokemon.hatchSteps + 1);
     const themeColor = `${TYPE_COLORS[types[types.length - 1]]}`;
+    
     this.setState({
       user: pokemon.user,
+      imageURL: pokemon.imageURL,
       name: pokemon.name,
       description: pokemon.description,
       types,
@@ -146,11 +150,11 @@ export default class PokemonDetails extends Component {
                 
                 {
                 // TODO: Implement img upload and load here
-                /* <img
-                  src={this.state.imageUrl}
+                 <img
+                  src={this.state.imageURL}
                   className="card-img-top rounded mx-auto mt-2"
                   alt="pokemon"
-                /> */}
+                /> }
               </div>
               <div className="col-md-9">
                 <h4 className="mx-auto">

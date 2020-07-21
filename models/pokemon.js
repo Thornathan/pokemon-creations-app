@@ -27,6 +27,7 @@ var pokemonSchema = new Schema(
     femaleRatio: { type: String },
     evs: { type: String },
     hatchSteps: { type: String },
+    imageURL: {type: String }
   },
   {
     timestamps: true,

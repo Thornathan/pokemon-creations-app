@@ -28,6 +28,7 @@ class AddPokemonPage extends React.Component {
         specialAttack: "",
         specialDefense: "",
         evs: '',
+        imageURL: '',
       },
     };
     
@@ -335,6 +336,16 @@ class AddPokemonPage extends React.Component {
               name="evs"
               placeholder="Enter as: 1 Hp, 3 Special Attack, etc."
               value={this.state.formData.evs}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label>Image URL</label>
+            <input
+              className="form-control"
+              name="imageURL"
+              placeholder=""
+              value={this.state.formData.imageURL}
               onChange={this.handleChange}
             />
           </div>
