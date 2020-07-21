@@ -143,11 +143,14 @@ export default class PokemonDetails extends Component {
           <div className="card-body">
             <div className="row align-items-center">
               <div className=" col-md-3 ">
-                <img
+                
+                {
+                // TODO: Implement img upload and load here
+                /* <img
                   src={this.state.imageUrl}
                   className="card-img-top rounded mx-auto mt-2"
                   alt="pokemon"
-                />
+                /> */}
               </div>
               <div className="col-md-9">
                 <h4 className="mx-auto">
@@ -392,7 +395,7 @@ export default class PokemonDetails extends Component {
               </div>
             </div>
           </div>
-          <div className="card-footer">This Pokemon Was Created With Love By {this.state.user}</div>
+          <div className="card-footer"></div>
         </div>
       </div>
     );

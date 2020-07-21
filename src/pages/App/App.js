@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import { Route, Switch, Redirect, NavLink } from "react-router-dom";
 import "./App.css";
 import PokemonListPage from "../PokemonListPage/PokemonListPage";
@@ -12,21 +11,8 @@ import * as pokemonAPI from "../../utils/pokemonApi";
 import * as pokemonService from "../../utils/pokemonServices";
 import Dashboard from "../../components/layout/Dashboard";
 import Pokemon from "../../components/pokeApi/Pokemon";
-import PokemonDetails from "../../components/PokemonDetails/PokemonDetails"
+import PokemonDetails from "../../components/PokemonDetails/PokemonDetails";
 import Pokeball from "../../pokeball.png";
-
-const Branding = styled.a`
-  -moz-user-select: none;
-  -website-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -o-user-select: none;
-`;
-
-const Logo = styled.img`
-  height: 30px;
-  width: 30px;
-`;
 
 class App extends Component {
   state = {
@@ -120,7 +106,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <nav
-            className="navbar navbar-dark bg-dark fixed-top"
+            className="navbar fixed-top"
             style={
               this.state.hoverNavBar
                 ? {
@@ -132,15 +118,12 @@ class App extends Component {
                 : { backgroundColor: "transparent !important" }
             }
           >
-            <Branding
-              href="/"
-              className="navbar-brand col-sm-3 col-md-2 mr-0 align-items-center"
-            >
+            <NavLink exact to="/" className="navbar-brand col-sm-2 col-md-3">
               <div className="logo">
-                <Logo src={Pokeball} />
+                <img src={Pokeball} alt="Brand-Logo" />
                 <h5>P C</h5>
               </div>
-            </Branding>
+            </NavLink>
             {userService.getUser() ? (
               <>
                 {userService.getUser().name
@@ -152,9 +135,15 @@ class App extends Component {
                 </NavLink>
 
                 <NavLink exact to="/pokemon">
-                Pokédex
+                  Pokédex
                 </NavLink>
-                <a href="https://pokemon.alexonsager.net/" target="_blank" rel="noopener noreferrer">Pokémon Fusion</a>  
+                <a
+                  href="https://pokemon.alexonsager.net/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Pokémon Fusion
+                </a>
                 <NavLink exact to="/logout" onClick={this.handleLogout}>
                   LOGOUT
                 </NavLink>

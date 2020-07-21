@@ -12,8 +12,6 @@ const StyledLink = styled(Link)`
 `;
 
 function PokemonCreationCard({ pokemonFromParent, handleDeletePokemon }) {
-  
-
   const ownerText = () => {
     let result = "";
     result = pokemonFromParent.user.name
@@ -24,7 +22,7 @@ function PokemonCreationCard({ pokemonFromParent, handleDeletePokemon }) {
     return <dd>{result}</dd>;
   };
 
-   const pokemonTypes = () => {
+  const pokemonTypes = () => {
     let result = "";
     result = pokemonFromParent.type
       ? `${pokemonFromParent.type[0].toUpperCase()}${pokemonFromParent.type.slice(
@@ -42,41 +40,41 @@ function PokemonCreationCard({ pokemonFromParent, handleDeletePokemon }) {
       : `${result}`;
     return <dd>{result}</dd>;
   };
-    return (
-      <div className="col-md-3 col-sm-6 mb-5">
-          <div className="card">
-            <h3 className="card-header">{pokemonFromParent.name}</h3>
+  return (
+    <div className="col-md-3 col-sm-4">
+      <div className="card creation-card">
+        <h3 className="card-header">{pokemonFromParent.name}</h3>
         <StyledLink to={`/creations/${pokemonFromParent._id}`}>
-            <div className="card-body">
-              <dl>
-                <dt>Owner</dt>
-                {ownerText()}
-                <dt>Type</dt>
-                {pokemonTypes()}
-              </dl>
-            </div>
-              </StyledLink>
-  
-            <div className="card-footer">
-              <Link
-                className="btn btn-xs btn-warning"
-                to={{
-                  pathname: "/edit",
-                  state: { clickedOnPokemon: pokemonFromParent },
-                }}
-              >
-                EDIT
-              </Link>
-              <button
-                className="btn btn-xs btn-danger margin-left-10"
-                onClick={() => handleDeletePokemon(pokemonFromParent._id)}
-              >
-                DELETE
-              </button>
-            </div>
+          <div className="card-body">
+            <dl className="creation-details">
+              <dt>Owner</dt>
+              {ownerText()}
+              <dt>Type</dt>
+              {pokemonTypes()}
+            </dl>
           </div>
+        </StyledLink>
+
+        <div className="card-footer">
+          <Link
+            className="btn btn-xs btn-warning"
+            to={{
+              pathname: "/edit",
+              state: { clickedOnPokemon: pokemonFromParent },
+            }}
+          >
+            EDIT
+          </Link>
+          <button
+            className="btn btn-xs btn-danger margin-left-10"
+            onClick={() => handleDeletePokemon(pokemonFromParent._id)}
+          >
+            DELETE
+          </button>
+        </div>
       </div>
-    );
+    </div>
+  );
 }
 
 export default PokemonCreationCard;

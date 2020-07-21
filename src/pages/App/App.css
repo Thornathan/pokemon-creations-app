@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 2.0vmin;
+  font-size: 2vmin;
   font-weight: bold;
   color: var(--background);
 }
@@ -26,7 +26,8 @@
 
 .App main h1 {
   color: var(--background);
-  margin-bottom: 5vmin;
+  /* margin-bottom: 5vmin; */
+  margin-top: 0;
 }
 
 .App main h2 {
@@ -36,6 +37,7 @@
 
 body {
   background-color: transparent !important;
+  text-rendering: optimizeLegibility;
 }
 
 .navbar {
@@ -55,17 +57,19 @@ body {
 .logo {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
   padding-top: 0.25em;
 }
 
 .logo > h5 {
   padding-left: 0.5em;
+  padding-right: 0;
   vertical-align: middle;
   font-size: 28px;
 }
 
-.card {
+.api-card {
   opacity: 0.95;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);

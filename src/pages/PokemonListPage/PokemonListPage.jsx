@@ -1,5 +1,5 @@
 import React from "react";
-import "./PokemonListPage.css";
+
 import PokemonCreationCard from "../../components/PokemonCreationCard/PokemonCreationCard";
 
 function PokemonListPage({ pokemon, handleDeletePokemon }) {
@@ -7,13 +7,15 @@ function PokemonListPage({ pokemon, handleDeletePokemon }) {
     <>
       <h1>My Pokémon Creations</h1>
       <div className="row pokemon-list">
-        {pokemon ? pokemon.map((p) => (
-          <PokemonCreationCard
-            key={p._id}
-            pokemonFromParent={p}
-            handleDeletePokemon={handleDeletePokemon}
-          />
-        )) : 'No Pokemon'}
+        {pokemon
+          ? pokemon.map((p) => (
+              <PokemonCreationCard
+                key={p._id}
+                pokemonFromParent={p}
+                handleDeletePokemon={handleDeletePokemon}
+              />
+            ))
+          : "No Pokemon"}
       </div>
     </>
   );
