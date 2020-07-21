@@ -82,6 +82,16 @@ class App extends Component {
       : this.setState({ hoverNavBar: true });
   }
 
+  /* Set the width of the side navigation to 250px */
+  openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+
+  /* Set the width of the side navigation to 0 */
+  closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+
   async componentDidMount() {
     const pokemon = await pokemonService.getAllPokemonAPI();
     const typesFromAPI = await pokemonAPI.getAllTypeAPI();
@@ -118,12 +128,12 @@ class App extends Component {
                 : { backgroundColor: "transparent !important" }
             }
           >
-            <NavLink exact to="/" className="navbar-brand col-sm-2 col-md-3">
+            <a href="/" className="navbar-brand">
               <div className="logo">
                 <img src={Pokeball} alt="Brand-Logo" />
                 <h5>P C</h5>
               </div>
-            </NavLink>
+            </a>
             {userService.getUser() ? (
               <>
                 {userService.getUser().name
@@ -147,6 +157,8 @@ class App extends Component {
                 <NavLink exact to="/logout" onClick={this.handleLogout}>
                   LOGOUT
                 </NavLink>
+
+                
               </>
             ) : (
               <>
