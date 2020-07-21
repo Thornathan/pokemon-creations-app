@@ -1,62 +1,52 @@
-## Welcome To Pokemon Creations
+# Welcome To Pokemon Creations
 
-This is an app that was designed for creative pokemon enthusiasts who would like to create their very own pokemon! Well start off with the Home Page
+This is an app that was designed for creative pokemon enthusiasts who would like to create their very own pokemon! Pokemon can easily be created once logged in and the creation page has preset placeholders to explain what to enter for each field. It also has a pokedex built in with the original 151 pokemon!
 
-### `Pokemon Creations Login/SignUp`
+### Login/SignUp
 
-[Login/SignUp](https://i.imgur.com/JDj5fWs.png)
+![Login/SignUp](https://i.imgur.com/JDj5fWs.png)
 
-### `npm test`
+### Home Page
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Home Page](https://i.imgur.com/g4QS1Up.png)
 
-### `npm run build`
+### Creating Pokemon
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Creating A Pokemon](https://i.imgur.com/0Eaywzi.png)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Pokedex
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Pokedex](https://i.imgur.com/D37jUeL.png)
 
-### `npm run eject`
+###  Pokemon Details
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Details](https://i.imgur.com/pzlYHh5.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technologies Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- HTML
+- CSS
+- Javascript
+- React
+- MongoDB
+- Express
+- Node.js
+- Bootstrap
+- pokeapi.co
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Things To Work On
 
-## Learn More
+- Implementing image uploading for pokemon
+- Having an Index page that shows all pokemon creations
+- Be able to Fuse a Pokemon in app and have the details populate
+- Work on Styling
+- Add a search bar for both api list and creations list
+- Create a user profiles page
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Link to App
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Pokemon Creations](https://pokemon-creations.herokuapp.com/)
 
-### Code Splitting
+## Link To Project Board
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[Trello](https://trello.com/b/crYJYnSN/pokemon-creation-app)
