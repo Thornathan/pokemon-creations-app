@@ -2,13 +2,9 @@
 
 This is an app that was designed for creative pokemon enthusiasts who would like to create their very own pokemon! Well start off with the Home Page
 
-### `Pokemon Creations`
+### `Pokemon Creations Login/SignUp`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+[Login/SignUp](https://i.imgur.com/JDj5fWs.png)
 
 ### `npm test`
 
