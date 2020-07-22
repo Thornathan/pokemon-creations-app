@@ -140,7 +140,7 @@ class AddPokemonPage extends React.Component {
   render() {
     return (
       <div className="pokemon-form-bg">
-        <h1>Create A Pokémon</h1>
+        <h1>Create Pokémon</h1>
         {this.state.error && (
           <div className="create-pokemon-error">
             {this.state.error}

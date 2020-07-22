@@ -111,7 +111,7 @@ class EditPokemonPage extends Component {
     return (
       <>
         <div className="pokemon-form-bg">
-          <h2>Edit Pokémon</h2>
+          <h1>Edit Pokémon</h1>
           {this.state.error && (
             <div className="create-pokemon-error">
               {this.state.error}
