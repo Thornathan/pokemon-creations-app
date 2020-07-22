@@ -22,6 +22,16 @@ This is an app that was designed for creative pokemon enthusiasts who would like
 
 ![Details](https://i.imgur.com/pzlYHh5.png)
 
+### Pokemon Fusion
+
+#### The Pokemon Fusion link can be used to merge pokemon and then by right-clicking you can copy image address.
+
+![Fusion](https://i.imgur.com/gQNwPYR.png)
+
+#### Then you can paste it into the Image URL part of the Create Pokemon Page 
+
+![Create](https://i.imgur.com/GR4vuQ2.png)
+
 ## Technologies Used
 
 - HTML
