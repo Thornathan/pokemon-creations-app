@@ -5,7 +5,7 @@ import PokemonCreationCard from "../../components/PokemonCreationCard/PokemonCre
 function PokemonListPage({ pokemon, handleDeletePokemon }) {
   return (
     <>
-      <div className="row">
+      <div className="row list-title">
         <h1>Pokémon Creations</h1>
       </div>
       <div className="row pokemon-list">

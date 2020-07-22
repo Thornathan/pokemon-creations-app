@@ -136,12 +136,8 @@ class App extends Component {
             </a>
             {userService.getUser() ? (
               <>
-                {userService.getUser().name
-                  ? `WELCOME, ${userService.getUser().name.toUpperCase()}`
-                  : ""}
-
                 <NavLink exact to="/add">
-                  Create Pokémon
+                  Create
                 </NavLink>
 
                 <NavLink exact to="/pokemon">
@@ -152,7 +148,7 @@ class App extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Pokémon Fusion
+                  Fusion
                 </a>
                 <NavLink exact to="/logout" onClick={this.handleLogout}>
                   LOGOUT

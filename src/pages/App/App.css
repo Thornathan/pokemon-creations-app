@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 2vmin;
+  font-size: 1.25em;
   font-weight: bold;
   color: var(--background);
 }
@@ -31,6 +31,7 @@ body {
 
 .navbar {
   background-color: #ef5350 !important;
+  
 }
 
 .navbar a:hover {
@@ -124,3 +125,10 @@ body {
   border: none;
   float: right;
 }
+
+.list-title {
+  background-color: var(--background);
+  border-radius: 15px;
+  padding: 1.5%;
+}
+
