@@ -24,17 +24,6 @@
   align-items: center;
 }
 
-.App main h1 {
-  color: var(--background);
-  margin-bottom: 5vmin;
-  margin-top: 0;
-}
-
-.App main h2 {
-  color: var(--black);
-  margin-bottom: 5vmin;
-}
-
 body {
   background-color: transparent !important;
   text-rendering: optimizeLegibility;
@@ -85,4 +74,53 @@ body {
 
 .pokemon-card {
   margin-top: 4em;
+}
+
+.creation-card {
+  margin-bottom: 15%;
+}
+
+.form-control {
+  margin-top: 3%;
+}
+
+.pokemon-form-bg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background);
+  border-radius: 2em;
+  padding: 3.5em;
+  margin: 2.5em;
+}
+
+.pokemon-form-bg .btn {
+  background-color: var(--red);
+  color: var(--background);
+  font-weight: bold;
+  margin-top: 5%;
+}
+
+.pokemon-form-bg h3 {
+  text-align: center;
+  margin-top: 5%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.create-pokemon-error {
+  background-color: pink;
+  color: red;
+  border-radius: 5px;
+  width: 80%;
+  padding: 2.5%;
+}
+
+.error-remove-btn {
+  background-color: transparent;
+  border: none;
+  float: right;
 }

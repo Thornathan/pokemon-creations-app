@@ -3,6 +3,7 @@ const Pokemon = require("../../models/pokemon");
 module.exports = {
   index,
   show,
+  findByName,
   create,
   update,
   delete: deleteOne,
@@ -27,6 +28,17 @@ async function show(req, res) {
     res.status(500).json(err);
   }
 }
+
+// findOne
+async function findByName(req, res) {
+  try {
+    const pokemon = await Pokemon.findOne({name: req.param.name});
+    res.status(200).json(pokemon);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+}
+
 
 // create
 async function create(req, res) {

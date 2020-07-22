@@ -17,6 +17,14 @@ export function getPokemonDetailAPI(pokemonId) {
   }).then((pokemon) => pokemon.json());
 }
 
+export function getPokemonByNameAPI(pokemonName) {
+  return fetch(`${BASE_URL}/${pokemonName}`, {
+    headers: {
+      Authorization: `Bearer ${tokenService.getTokenFromLocalStorage()}`,
+    },
+  }).then((pokemon) => pokemon.json());
+}
+
 export function createPokemonAPI(pokemonToCreate) {
   return fetch(BASE_URL, {
     method: "POST",
