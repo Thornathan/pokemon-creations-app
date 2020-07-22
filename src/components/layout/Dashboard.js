@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import PokemonList from '../pokeApi/PokemonList'
+import React, { Component } from "react";
+import PokemonList from "../pokeApi/PokemonList";
 
 export default class Dashboard extends Component {
   render() {
@@ -9,6 +9,6 @@ export default class Dashboard extends Component {
           <PokemonList />
         </div>
       </div>
-    )
+    );
   }
 }

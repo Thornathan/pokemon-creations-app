@@ -32,13 +32,12 @@ async function show(req, res) {
 // findOne
 async function findByName(req, res) {
   try {
-    const pokemon = await Pokemon.findOne({name: req.param.name});
+    const pokemon = await Pokemon.findOne({ name: req.param.name });
     res.status(200).json(pokemon);
   } catch (err) {
     res.status(500).json(err);
   }
 }
-
 
 // create
 async function create(req, res) {

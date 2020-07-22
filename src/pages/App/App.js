@@ -153,8 +153,6 @@ class App extends Component {
                 <NavLink exact to="/logout" onClick={this.handleLogout}>
                   LOGOUT
                 </NavLink>
-
-                
               </>
             ) : (
               <>

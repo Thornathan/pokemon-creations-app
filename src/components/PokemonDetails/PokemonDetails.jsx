@@ -56,7 +56,7 @@ export default class PokemonDetails extends Component {
     const id = this.getUrlParam();
     const pokemon = await getPokemonDetailAPI(id);
     this.populatePokemonDetails(pokemon);
-    console.log(pokemon.imageURL)
+    console.log(pokemon.imageURL);
   }
 
   getUrlParam() {
@@ -85,7 +85,7 @@ export default class PokemonDetails extends Component {
     const genderRatioFemale = 12.5 * femaleRate;
     const genderRatioMale = 12.5 * (8 - femaleRate);
     const themeColor = `${TYPE_COLORS[types[types.length - 1]]}`;
-    
+
     this.setState({
       user: pokemon.user,
       imageURL: pokemon.imageURL,
@@ -145,14 +145,14 @@ export default class PokemonDetails extends Component {
           <div className="card-body">
             <div className="row align-items-center">
               <div className=" col-md-3 ">
-                
                 {
-                // TODO: Implement img upload and load here
-                 <img
-                  src={this.state.imageURL}
-                  className="card-img-top rounded mx-auto mt-2"
-                  alt="pokemon"
-                /> }
+                  // TODO: Implement img upload and load here
+                  <img
+                    src={this.state.imageURL}
+                    className="card-img-top rounded mx-auto mt-2"
+                    alt="pokemon"
+                  />
+                }
               </div>
               <div className="col-md-9">
                 <h4 className="mx-auto">

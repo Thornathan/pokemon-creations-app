@@ -3,7 +3,6 @@ import React from "react";
 //TODO: Implement checking database for a pokemon already created
 // import { getPokemonByNameAPI } from "../../utils/pokemonServices";
 
-
 class AddPokemonPage extends React.Component {
   constructor(props) {
     super(props);

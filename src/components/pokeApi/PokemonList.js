@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import PokemonCard from './PokemonCard';
-import Loading from '../layout/Loading';
-import axios from 'axios';
+import PokemonCard from "./PokemonCard";
+import Loading from "../layout/Loading";
+import axios from "axios";
 
 export default class PokemonList extends Component {
   state = {
-    url: 'https://pokeapi.co/api/v2/pokemon/?limit=151',
-    pokemon: null
+    url: "https://pokeapi.co/api/v2/pokemon/?limit=151",
+    pokemon: null,
   };
 
   async componentDidMount() {
     const res = await axios.get(this.state.url);
-    this.setState({ pokemon: res.data['results'] });
+    this.setState({ pokemon: res.data["results"] });
   }
 
   render() {
@@ -20,7 +20,7 @@ export default class PokemonList extends Component {
       <div>
         {this.state.pokemon ? (
           <div className="row pokemon-list">
-            {this.state.pokemon.map(pokemon => (
+            {this.state.pokemon.map((pokemon) => (
               <PokemonCard
                 key={pokemon.name}
                 name={pokemon.name}
