@@ -141,7 +141,7 @@ class App extends Component {
                   : ""}
 
                 <NavLink exact to="/add">
-                  Create A Pokémon
+                  Create Pokémon
                 </NavLink>
 
                 <NavLink exact to="/pokemon">
