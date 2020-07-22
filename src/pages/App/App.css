@@ -93,6 +93,9 @@ body {
   border-radius: 2em;
   padding: 3.5em;
   margin: 2.5em;
+  opacity: 0.95;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .pokemon-form-bg .btn {
@@ -104,7 +107,8 @@ body {
 
 .pokemon-form-bg h3 {
   text-align: center;
-  margin-top: 5%;
+  margin-top: 15%;
+  margin-bottom: 15%;
 }
 
 .center {
@@ -130,5 +134,11 @@ body {
   background-color: var(--background);
   border-radius: 15px;
   padding: 1.5%;
+  opacity: 0.90;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+.description-input {
+  line-height: 1.6em;
+}

@@ -139,8 +139,8 @@ class EditPokemonPage extends Component {
                 </div>
                 <div className="form-group">
                   <label>Description</label>
-                  <input
-                    className="form-control"
+                  <textarea
+                    className="form-control description-input"
                     name="description"
                     placeholder="Enter A Description"
                     value={this.state.formData.description}

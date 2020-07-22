@@ -84,8 +84,6 @@ export default class PokemonDetails extends Component {
     const femaleRate = pokemon.femaleRatio;
     const genderRatioFemale = 12.5 * femaleRate;
     const genderRatioMale = 12.5 * (8 - femaleRate);
-    const catchRate = Math.round((100 / 255) * 254);
-    const hatchSteps = 200 * (pokemon.hatchSteps + 1);
     const themeColor = `${TYPE_COLORS[types[types.length - 1]]}`;
     
     this.setState({
@@ -97,8 +95,8 @@ export default class PokemonDetails extends Component {
       abilities,
       genderRatioFemale,
       genderRatioMale,
-      catchRate,
-      hatchSteps,
+      catchRate: pokemon.catchRate,
+      hatchSteps: pokemon.hatchSteps,
       eggGroup: pokemon.eggGroup,
       hp: pokemon.hp,
       attack: pokemon.attack,
