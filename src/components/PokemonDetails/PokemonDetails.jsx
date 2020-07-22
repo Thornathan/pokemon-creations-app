@@ -56,7 +56,6 @@ export default class PokemonDetails extends Component {
     const id = this.getUrlParam();
     const pokemon = await getPokemonDetailAPI(id);
     this.populatePokemonDetails(pokemon);
-    console.log(pokemon.imageURL);
   }
 
   getUrlParam() {
